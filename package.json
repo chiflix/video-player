@@ -1,0 +1,23 @@
+{
+  "name": "video-player",
+  "version": "1.0.0",
+  "description": "![Pretend that our project has passed the test](https://raw.githubusercontent.com/dwyl/repo-badges/master/highresPNGs/build-passing.png)",
+  "main": "./script/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiflix/video-player.git"
+  },
+  "author": "nq.maigre + lilac.vapor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiflix/video-player/issues"
+  },
+  "homepage": "https://github.com/chiflix/video-player#readme",
+  "dependencies": {
+    "electron": "^1.8.2"
+  }
+}
