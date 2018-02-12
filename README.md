@@ -8,12 +8,12 @@
 
 [force] 使用4个空格作为缩进, 如
 
-	switch(a) {
-		case('2'):
-			break;
-		default:
-			a += '2';
-	}
+    switch(a) {
+        case('2'):
+            break;
+        default:
+            a += '2';
+    }
 
 [force] 函数以动词开始, 小写驼峰式命名, 如 getElementById
 
@@ -25,27 +25,27 @@
 
 [force] 换行可以在',',';'后, 如 
 
-	function thisIsALongFunction(longInput1, 
-		longInput2){
-		// do something here
-	}
+    function thisIsALongFunction(longInput1, 
+        longInput2){
+        // do something here
+    }
 
-	let functionA = function(param1, [
-		1,
-		2,
-		3		
-	], false);
+    let functionA = function(param1, [
+        1,
+        2,
+        3,
+    ], false);
 
 [force] 请用眼部观察
 
-	if(a) {
-	
-	} else {
+    if(a) {
+        //do something
+    } else {
+        //do something
+    }
 
-	}
-
-	try {
-
-	} catch(error) {
-
-	}
+    try {
+        //do something
+    } catch(error) {
+        //do something
+    }
