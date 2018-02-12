@@ -15,21 +15,15 @@ const createWindow = function(){
     mainWindow.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
     //mainWindow.webContents.openDevTools();
-
-    mainWindow.on('close', (event) => {
-        if(!safeExit){
-            event.preventDefault();
-            mainWindow.webContents.send('action', 'exiting');
-        }
-    });
-    //当主界面关闭时回收BrowserWindow对象
-    mainWindow.on('closed', () => {
-        mainWindow = null;
-    });
+    
     //调整主界面大小时重新加载
     /*mainWindow.on('resize', () => {
         mainWindow.reload();
     })*/
+
+    mainWindow.on('closed', () => {
+        mainWindow = null;
+    });
 };
 
 app.on('ready', createWindow);//electron完成初始化后触发

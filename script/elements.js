@@ -11,3 +11,8 @@ const hideWidget = function() {
 
 splayer.addEventListener("mouseover", displayWidget, false);
 splayer.addEventListener("mouseout", hideWidget, false);
+
+module.exports.splayer = splayer;
+module.exports = {
+	splayer: splayer
+}
