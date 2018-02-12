@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<title>SPlayer</title>
+</head>
+<body id="splayer">
+	<div class="main">
+		<div class="widget" id="widget">
+			<div class="widget-middle">
+				<div id="button-play">
+					<embed src="image/icon-play.svg" type="image/svg+xml">
+				</div>
+			</div>
+			<div class="widget-lower">
+				<div class="widget-lower-buttons">
+					<div class="widget-lower-buttons-left">
+						<div id="button-time">
+							<span id="info-playing-time">02:33</span>
+							<span class="time-split">/</span>
+							<span id="info-full-time">10:28</span>
+						</div>
+					</div>
+					<div class="widget-lower-buttons-right">
+						<div class="widget-lbr-item" id="widget-advanced">
+							<div id="button-advanced">
+								<embed src="image/icon-advanced.svg" type="image/svg+xml">
+							</div>
+						</div>
+						<div class="widget-lbr-item" id="widget-volume">
+							<div id="button-volume">
+								<embed src="image/icon-volume.svg" type="image/svg+xml">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="widget-lower-progress">
+					<div id="progress-played">
+						<div class="line-bar"></div>
+						<div class="gradient"></div>
+					</div>
+				</div>
+				<div class="widget-lower-gradient"></div>
+			</div>
+		</div>
+		<div class="video" id="video">
+			<video src="media/animation.mp4" autoplay="autoplay"></video>
+		</div>
+	</div>
+	<script src="script/elements.js"></script>
+</body>
+</html>

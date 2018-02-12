@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  width: 100%;
+  height: 100%; }
+
+#splayer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 640px;
+  min-height: 360px; }
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden; }
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: url("img/video-boy.jpeg");
+  background-size: cover; }
+  .video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+
+.widget {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: transparent;
+  overflow: hidden;
+  z-index: 100; }
+  .widget .widget-middle {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+  .widget .widget-lower {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%; }
+    .widget .widget-lower .widget-lower-buttons {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      height: 120px; }
+      .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-left {
+        position: absolute;
+        left: 30px;
+        bottom: 0; }
+      .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-right {
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        overflow: hidden; }
+        .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-right .widget-lbr-item {
+          position: relative;
+          float: right;
+          width: 30px;
+          height: 120px;
+          margin-left: 15px; }
+    .widget .widget-lower .widget-lower-progress {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%; }
+    .widget .widget-lower .widget-lower-gradient {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
+
+.widget-mouseover {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: transparent;
+  overflow: hidden;
+  z-index: 100; }
+  .widget-mouseover .widget-middle {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%; }
+  .widget-mouseover .widget-lower {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%; }
+    .widget-mouseover .widget-lower .widget-lower-buttons {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      height: 120px; }
+      .widget-mouseover .widget-lower .widget-lower-buttons .widget-lower-buttons-left {
+        position: absolute;
+        left: 30px;
+        bottom: 0; }
+      .widget-mouseover .widget-lower .widget-lower-buttons .widget-lower-buttons-right {
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        overflow: hidden; }
+        .widget-mouseover .widget-lower .widget-lower-buttons .widget-lower-buttons-right .widget-lbr-item {
+          position: relative;
+          float: right;
+          width: 30px;
+          height: 120px;
+          margin-left: 15px; }
+    .widget-mouseover .widget-lower .widget-lower-progress {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%; }
+    .widget-mouseover .widget-lower .widget-lower-gradient {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
+
+#progress-played {
+  position: relative;
+  bottom: 0;
+  width: 30%;
+  height: 100%; }
+  #progress-played .line-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #FFFFFF;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5); }
+  #progress-played .gradient {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
+
+#button-time {
+  color: #FFFFFF; }
+  #button-time span#info-playing-time {
+    display: inline-block;
+    font-family: Avenir-Heavy;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0.1px; }
+  #button-time span.time-split {
+    display: inline-block;
+    margin: 0 2px;
+    opacity: 0.5;
+    font-family: Avenir-Heavy;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0.1px; }
+  #button-time span#info-full-time {
+    display: inline-block;
+    opacity: 0.5;
+    font-family: Avenir-Heavy;
+    font-size: 18px;
+    color: #FFFFFF;
+    letter-spacing: 0.1px; }
+
+#widget-advanced #button-advanced {
+  position: absolute;
+  bottom: 0px;
+  width: 30px;
+  height: 24px; }
+  #widget-advanced #button-advanced embed {
+    width: 30px;
+    height: 24px; }
+
+#widget-volume #button-volume {
+  position: absolute;
+  bottom: 0px;
+  width: 30px;
+  height: 24px; }
+  #widget-volume #button-volume embed {
+    width: 30px;
+    height: 24px; }
+
+#button-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -42.5px;
+  margin-left: -42.5px;
+  width: 85px;
+  height: 85px;
+  display: none; }
+  #button-play embed {
+    width: 85px;
+    height: 85px; }
+
+/*# sourceMappingURL=style.css.map */
