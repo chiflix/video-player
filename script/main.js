@@ -1,15 +1,12 @@
-const {app, BrowserWindow,//窗口部分
-       Menu, MenuItem, dialog,//菜单和对话框
-       ipcMain}//进程间通信
-       = require('electron');
-//let safeExit = false;//是否可以安全退出
+const {app, BrowserWindow, Menu, MenuItem, ipcMain} = require('electron');
+const {MenuTemplate, addMenuItems} = require('./menu.js')
 
 let mainWindow;
 const windowConfig = {
     width: 800,
     height: 600,
 };
-const createWindow = function(){
+const createWindow = function() {
     mainWindow = new BrowserWindow(windowConfig);
     //加载主界面
     mainWindow.loadURL(`file://${__dirname}/../index.html`);
@@ -26,7 +23,18 @@ const createWindow = function(){
     });
 };
 
-app.on('ready', createWindow);//electron完成初始化后触发
+const createMenu = function() {
+    const menu = Menu.buildFromTemplate(MenuTemplate);
+    addMenuItems(mainWindow, menu);
+    Menu.setApplicationMenu(menu);
+};
+
+const initializeApp = function() {
+    createWindow();
+    createMenu();
+};
+
+app.on('ready', initializeApp);//electron完成初始化后触发
 app.on('window-all-closed', () => {
     if(process.platform !== "darwin"){
         app.quit();
