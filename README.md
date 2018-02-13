@@ -1,10 +1,28 @@
 # video-player 
+[![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
 
-![Pretend that our project has passed the test](https://raw.githubusercontent.com/dwyl/repo-badges/master/highresPNGs/build-passing.png)
+
+# clone后运行软件的方法
++ 安装node: brew install node
++
++ 在终端中进入项目根目录
++ 安装electron: npm install electron [-g]
++
++ 查看app运行情况: npm start
++
++ 安装app打包程序: npm install electron-packager
++ 打包app: electron-packager . theNameOfTheApp --electron-version=yourElectronVersion [--overwrite]
+
+# 使用eslint的方法(紫嫣女士请看)
++ 安装eslint: npm install eslint --save-dev
++ 查看eslint检测情况: npm run lint
++
++ 我后续会根据代码规范更新eslint的检查规则， 我们每次写完代码都可以运行 npm run lint 检查我们写的代码是否符合规范
 
 # NQ和ZY的临时命名规范
-
 [force] 命名不使用缩写(紫嫣女士说不能用拼音)
+
+[force] 字符串尽量使用单引号
 
 [force] 使用4个空格作为缩进, 如
 
@@ -23,18 +41,18 @@
 
 [force] 数据常量使用全大写命名, 用下划线分隔开, 如 INITIAL_VALUE
 
-[force] 换行可以在',',';'后, 如 
+[force] 函数名太长或参数名太长可以换行, 如 
 
-    function thisIsALongFunction(longInput1, 
-        longInput2){
+    function thisIsALongFunction
+        (longInput1, longInput2) {
         // do something here
     }
 
-    let functionA = function(param1, [
+    let returnedValue = someFunction(param1, [
         1,
         2,
         3,
-    ], false);
+    ], param2);
 
 [force] 请用眼部观察
 

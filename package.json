@@ -5,7 +5,8 @@
   "main": "./script/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "lint": "./node_modules/.bin/eslint ./script/*.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "homepage": "https://github.com/chiflix/video-player#readme",
   "dependencies": {
     "electron": "^1.8.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0"
   }
 }

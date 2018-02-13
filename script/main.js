@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Menu, MenuItem, ipcMain} = require('electron');
+const {app, BrowserWindow, Menu} = require('electron');
 const {MenuTemplate, addMenuItems} = require('./menu.js')
 
 let mainWindow;
@@ -36,7 +36,7 @@ const initializeApp = function() {
 
 app.on('ready', initializeApp);//electron完成初始化后触发
 app.on('window-all-closed', () => {
-    if(process.platform !== "darwin"){
+    if(process.platform !== 'darwin'){
         app.quit();
     }
 });
