@@ -15,5 +15,6 @@ splayer.addEventListener('mouseout', hideWidget, false);
 
 //module.exports.splayer = splayer;
 module.exports = {
+    splayer: splayer,
     video: video
 }
