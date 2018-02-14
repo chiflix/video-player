@@ -44,11 +44,16 @@
 				<div class="widget-lower-gradient"></div>
 			</div>
 		</div>
-		<div class="video" id="video">
-			<video src="media/animation.mp4" autoplay="autoplay"></video>
+		<!-- 我把下面这个div的id属性"video"删去了，给了video一个id属性"video" -->
+		<div class="video">
+			<video src="media/animation.mp4" autoplay="autoplay" id="video"></video>
 		</div>
 	</div>
-	<script src="script/elements.js"></script>
-	<script src="script/window-action.js"></script>
+	<!-- 像以下这样引入js文件 -->
+	<!-- <script src="script/elements.js"></script> 这种方式引入js会破坏模块化的特性 -->
+	<script>
+		require('./script/elements.js');
+		require('./script/window-action.js');
+	</script>
 </body>
 </html>
