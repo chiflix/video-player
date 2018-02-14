@@ -16,10 +16,12 @@ function getVideoFile() {
     }
 }
 
+//当渲染进程接受到来自主进程的action信息时，根据tag的内容进行不同的操作
 function processMessage(event, tag) {
     switch(tag){
         case('open'): {
             const video_file = getVideoFile();
+            //alert(video_file);
             if(video_file) {
                 video.setAttribute('src', video_file);
             }
@@ -30,6 +32,9 @@ function processMessage(event, tag) {
 
 ipcRenderer.on('action', processMessage);
 
+//给splayer模块添加拖放事件的响应
+//当拖放了一个文件至窗口时，会自动开始播放
+//TODO: 判断拖动的文件是否能够被播放，不能的话则不进行任何操作
 splayer.addEventListener('dragenter', (event)=>{
     event.preventDefault();
 }, false);
