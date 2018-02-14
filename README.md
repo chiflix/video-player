@@ -27,10 +27,14 @@
 [force] 使用4个空格作为缩进, 如
 
     switch(a) {
-        case('2'):
+        case('2'): {
+            //do something
             break;
-        default:
+        }
+        default: {
+            //do something else
             a += '2';
+        }
     }
 
 [force] 函数以动词开始, 小写驼峰式命名, 如 getElementById
