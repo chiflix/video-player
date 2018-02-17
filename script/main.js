@@ -1,7 +1,5 @@
 const {app, BrowserWindow, Menu} = require('electron');
-const {MenuTemplate, addMenuItems} = require('./menu.js');
-
-//TODO: 在非全屏时自动调整窗口大小，使得播放的视频不出现黑边
+const {MenuTemplate, addMenuItems} = require('./menu.js')
 
 let mainWindow;
 const windowConfig = {
@@ -14,7 +12,7 @@ const createWindow = function() {
     mainWindow.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
     //mainWindow.webContents.openDevTools();
-
+    
     //调整主界面大小时重新加载
     /*mainWindow.on('resize', () => {
         mainWindow.reload();
