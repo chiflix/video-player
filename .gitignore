@@ -2,3 +2,5 @@
 *.map
 /node_modules/
 /temp-player-darwin-x64/
+
+.sass-cache
