@@ -1,12 +1,21 @@
-const {widget, splayer} = require('./elements.js');
+const {widget, splayer, video} = require('./elements.js');
 
 const displayWidget = function() {
-    widget.style.display = 'block';
+    widget.className = 'widget-mouseover';
 }
 
 const hideWidget = function() {
-    widget.style.display = 'none';
+    widget.className = 'widget';
+}
+
+const togglePlayPause = function() {
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
 }
 
 splayer.addEventListener('mouseover', displayWidget, false);
 splayer.addEventListener('mouseout', hideWidget, false);
+splayer.addEventListener('click', togglePlayPause, false);

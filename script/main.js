@@ -11,7 +11,7 @@ const createWindow = function() {
     //加载主界面
     mainWindow.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
-    //mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
     
     //调整主界面大小时重新加载
     /*mainWindow.on('resize', () => {
