@@ -17,6 +17,7 @@ function getVideoFile() {
 }
 
 function processMessage(event, tag) {
+    //根据传入的tag而有不同的操作
     switch(tag){
         case('open'): {
             const video_file = getVideoFile();
