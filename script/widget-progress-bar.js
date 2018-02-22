@@ -1,12 +1,10 @@
-const {progress_bar, video} = require('./elements.js');
+const {progress_bar, video, splayer} = require('./elements.js');
 
 let progress_interval;
 
 const updateProgressElement = function() {
     let percentage = video.currentTime / video.duration;
-    // console.log(percentage);
-    if(parseInt(percentage) === 1) {
-        // console.log(percentage);
+    if(parseInt(percentage) === 1 && video.paused === true) {
         window.clearInterval(progress_interval); 
         return; 
     }
@@ -17,6 +15,5 @@ const updateProgress = function() {
     progress_interval = window.setInterval(updateProgressElement, 100); 
 }
 
-
 video.addEventListener('loadedmetadata', updateProgress, false);
-
+splayer.addEventListener('click', updateProgress, false);
