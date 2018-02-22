@@ -13,11 +13,9 @@
 + 安装app打包程序: npm install electron-packager
 + 打包app: electron-packager . theNameOfTheApp --electron-version=yourElectronVersion [--overwrite]
 
-# 使用eslint的方法(紫嫣女士请看)
+# 使用eslint的方法
 + 安装eslint: npm install eslint --save-dev
 + 查看eslint检测情况: npm run lint
-+
-+ 我后续会根据代码规范更新eslint的检查规则， 我们每次写完代码都可以运行 npm run lint 检查我们写的代码是否符合规范
 
 # NQ和ZY的临时命名规范
 [force] 命名不使用缩写(紫嫣女士说不能用拼音)
