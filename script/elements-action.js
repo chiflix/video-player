@@ -48,29 +48,22 @@ const formatTime = function(time) {
     return formatted_time;
 }
 
-const updateCurrentTime = function() {
-	const time = formatTime(elements.video.currentTime);
-	const node = document.createTextNode(time);
-	const childs = elements.info_current_time.childNodes;
+const updateTime = function(time, element) {
+	const node = document.createTextNode(formatTime(time));
+	const childs = element.childNodes;
 	for(var i = childs.length - 1; i >= 0; i--) {    
-		elements.info_current_time.removeChild(childs.item(i));    
+		element.removeChild(childs.item(i));    
 	} 
-    elements.info_current_time.appendChild(node);
+    element.appendChild(node);
 }
 
 elements.video.onloadedmetadata = function() {
-	const time = formatTime(elements.video.duration);
-	const node = document.createTextNode(time);
-	const childs = elements.info_current_time.childNodes;
-	for(var i = childs.length - 1; i >= 0; i--) {    
-		elements.info_duration.removeChild(childs.item(i));    
-	} 
-    elements.info_duration.appendChild(node);
+	updateTime(elements.video.duration, elements.info_duration);
 }
 
 //为 <video> 元素添加 ontimeupdate 事件，如果当前播放位置改变则执行函数 
 elements.video.ontimeupdate = function() { 
-	updateCurrentTime();
+	updateTime(elements.video.currentTime, elements.info_current_time);
 };
 
 elements.splayer.addEventListener('mouseover', displayWidget, false);
