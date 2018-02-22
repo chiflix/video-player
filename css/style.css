@@ -196,13 +196,13 @@ html {
 
 #button-time {
   color: #FFFFFF; }
-  #button-time span#info-playing-time {
+  #button-time span#info-current-time {
     display: inline-block;
     font-family: 'Avenir';
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.1px; }
+    letter-spacing: 0.2px; }
   #button-time span.time-split {
     display: inline-block;
     margin: 0 2px;
@@ -211,15 +211,15 @@ html {
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.1px; }
-  #button-time span#info-full-time {
+    letter-spacing: 0.2px; }
+  #button-time span#info-duration {
     display: inline-block;
     opacity: 0.5;
     font-family: 'Avenir';
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.1px; }
+    letter-spacing: 0.2px; }
 
 #widget-advanced #button-advanced {
   position: absolute;
