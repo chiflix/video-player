@@ -1,4 +1,6 @@
-const elements = require('./elements.js');
+const {video, info_current_time, info_duration} = require('./elements.js');
+
+let time_interval;
 
 /**
  * 时间秒数格式化
@@ -17,12 +19,12 @@ const formatTime = function(time) {
         } else {
             formatted_time = hour + ':';
         }
-        if(minute < 10) { 
+        if(minute < 10) {
             formatted_time += '0' + minute + ':';
         } else {
             formatted_time += minute + ':';
         }
-        if(second < 10) { 
+        if(second < 10) {
             formatted_time += '0' + second;
         } else {
             formatted_time += second;
@@ -30,24 +32,39 @@ const formatTime = function(time) {
     }
     //console.log(formatted_time);
     return formatted_time;
-}
+};
 
-function updateTimeElement(time, element) {
-    const node = document.createTextNode(formatTime(time));
+const updateTimeElement = function(time, element) {
+    const node = document.createTextNode(time);
     const childs = element.childNodes;
-    for(let i = childs.length - 1; i >= 0; i--) {    
-        element.removeChild(childs.item(i));    
-    } 
+    for(let i = childs.length - 1; i >= 0; i--) {
+        element.removeChild(childs.item(i));
+    }
     element.appendChild(node);
-}
-function updateDuration() {
-    updateTimeElement(elements.video.duration, elements.info_duration);
-}
+};
 
-//为 <video> 元素添加 ontimeupdate 事件，如果当前播放位置改变则执行函数 
-function updateCurrentTime() { 
-    updateTimeElement(elements.video.currentTime, elements.info_current_time);
-}
+const updateDuration = function() {
+    const time = formatTime(video.duration);
+    updateTimeElement(time, info_duration);
+};
 
-elements.video.addEventListener('loadedmetadata', updateDuration, false);
-elements.video.addEventListener('timeupdate', updateCurrentTime, false);
+const updateCurrentTime = function() {
+    const time = formatTime(video.currentTime);
+    updateTimeElement(time, info_current_time);
+};
+
+const setUpdateInterval = function() {
+    time_interval = window.setInterval(updateCurrentTime, 1000);
+};
+
+const clearUpdateInterval = function() {
+    if(video.paused === true) {
+        window.clearInterval(time_interval);
+        return;
+    }
+};
+
+video.addEventListener('loadedmetadata', updateDuration, false);
+video.addEventListener('loadstart', setUpdateInterval, false);
+video.addEventListener('play', setUpdateInterval, false);
+video.addEventListener('pause', clearUpdateInterval, false);
