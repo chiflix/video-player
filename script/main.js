@@ -34,6 +34,14 @@ const initializeApp = function() {
     createMenu();
 };
 
+let windowFocusing = false;
+function setWindowFocus() {
+    windowFocusing = true;
+}
+function setWindowBlur() {
+    windowFocusing = false;
+}
+
 app.on('ready', initializeApp);//electron完成初始化后触发
 app.on('window-all-closed', () => {
     if(process.platform !== 'darwin'){

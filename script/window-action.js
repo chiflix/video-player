@@ -26,6 +26,13 @@ function processMessage(event, tag) {
             }
             break;
         }
+        case('pause'): {
+            if(video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
     }
 }
 

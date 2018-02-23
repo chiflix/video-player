@@ -1,4 +1,4 @@
-const {shell, MenuItem} = require('electron');
+const {shell, MenuItem, remote} = require('electron');
 
 const MenuTemplate = [
     {
@@ -28,7 +28,7 @@ const MenuTemplate = [
     }
 ];
 
-const addMenuItems = function(currentWindow, menu) {
+function addMenuItems(currentWindow, menu) {
     //新建打开文件的菜单项
     menu.items[0].submenu.append(new MenuItem({
         label: 'Open',
