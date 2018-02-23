@@ -14,9 +14,9 @@ const createWindow = function() {
     mainWindow.webContents.openDevTools();
     
     //调整主界面大小时重新加载
-    /*mainWindow.on('resize', () => {
-        mainWindow.reload();
-    })*/
+    mainWindow.on('resize', () => {
+        mainWindow.webContents.send('action', 'resize');
+    });
 
     mainWindow.on('closed', () => {
         mainWindow = null;

@@ -2,11 +2,11 @@ const {splayer} = require('./elements.js');
 const {remote} = require('electron');
 const currentWindow = remote.getCurrentWindow();
 
-function togglePlayPause() {
+const togglePlayPause = function() {
     currentWindow.webContents.send('action', 'pause');
 }
 
-function listenSpaceKeyDown(event) {
+const listenSpaceKeyDown = function(event) {
     if(event.keyCode === 32){
         currentWindow.webContents.send('action', 'pause');
     }

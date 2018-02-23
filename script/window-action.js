@@ -1,7 +1,7 @@
 const {ipcRenderer, remote} = require('electron');
 const {splayer, video} = require('./elements.js');
 
-function getVideoFile() {
+const getVideoFile = function() {
     const files = remote.dialog.showOpenDialog(remote.getCurrentWindow(), {
         filters: [
             {name: 'Video Files', extensions: ['mp4', 'mkv', 'mov']}
@@ -16,7 +16,7 @@ function getVideoFile() {
     }
 }
 
-function processMessage(event, tag) {
+const processMessage = function(event, tag) {
     //根据传入的tag而有不同的操作
     switch(tag){
         case('open'): {
@@ -32,6 +32,12 @@ function processMessage(event, tag) {
             } else {
                 video.pause();
             }
+        }
+        case('resize'): {
+            const [currentWidth, currentHeight] = remote.getCurrentWindow().getSize();
+            const originWidth = video.videoWidth;
+            const originHeight = video.videoHeight;
+            console.log(originWidth + ' ' + originHeight);
         }
     }
 }
