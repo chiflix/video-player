@@ -1,4 +1,4 @@
-const {shell, MenuItem, remote} = require('electron');
+const {shell, MenuItem} = require('electron');
 
 const MenuTemplate = [
     {
@@ -43,7 +43,7 @@ function addMenuItems(currentWindow, menu) {
     menu.items[0].submenu.append(new MenuItem({
         role: 'quit'
     }));
-};
+}
 
 module.exports.MenuTemplate = MenuTemplate;
 module.exports.addMenuItems = addMenuItems;

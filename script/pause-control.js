@@ -1,4 +1,4 @@
-const {video, splayer} = require('./elements.js');
+const {splayer} = require('./elements.js');
 const {remote} = require('electron');
 const currentWindow = remote.getCurrentWindow();
 
@@ -7,9 +7,9 @@ function togglePlayPause() {
 }
 
 function listenSpaceKeyDown(event) {
-	if(event.keyCode === 32){
-		currentWindow.webContents.send('action', 'pause');
-	}
+    if(event.keyCode === 32){
+        currentWindow.webContents.send('action', 'pause');
+    }
 }
 
 splayer.addEventListener('click', togglePlayPause, false);
