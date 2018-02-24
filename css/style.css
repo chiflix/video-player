@@ -17,14 +17,17 @@
 
 html {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background: transparent !important; }
 
 #splayer {
+  background: transparent !important;
   position: relative;
   width: 100%;
   height: 100%; }
 
 .main {
+  background: transparent !important;
   position: relative;
   width: 100%;
   height: 100%;
@@ -36,8 +39,7 @@ html {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: url("../image/video-boy.jpeg");
-  background-size: cover; }
+  background: transparent !important; }
   .video-box video {
     width: 100%;
     height: 100%;
@@ -97,25 +99,29 @@ html {
       bottom: 0;
       width: 100%;
       height: 100%; }
+      .widget .widget-lower .widget-lower-progress .interactive-area {
+        position: absolute;
+        z-index: 300;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background: transparent; }
       .widget .widget-lower .widget-lower-progress .progress-normal {
         position: relative;
         bottom: 0;
-        width: 30%;
-        height: 100%; }
+        width: 0;
+        height: 100%;
+        transition: width 200ms linear; }
         .widget .widget-lower .widget-lower-progress .progress-normal .line-bar {
           position: absolute;
           bottom: 0;
           width: 100%;
           height: 2px;
           background: #FFFFFF;
-          box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5); }
-        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 2px;
-          background: #FFFFFF;
-          box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5); }
+          box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
+          transition: height 200ms; }
+        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar.line-bar-mouseover {
+          height: 10px; }
         .widget .widget-lower .widget-lower-progress .progress-normal .gradient {
           position: absolute;
           bottom: 0;
@@ -123,6 +129,16 @@ html {
           height: 100%;
           opacity: 0.1;
           background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
+      .widget .widget-lower .widget-lower-progress .progress-background {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 10px;
+        background: #fff;
+        opacity: 0;
+        transition: opacity 200ms; }
+      .widget .widget-lower .widget-lower-progress .progress-background.progress-background-mouseover {
+        opacity: 0.2; }
 
 .widget-mouseout {
   opacity: 0;
