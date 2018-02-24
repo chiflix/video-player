@@ -46,6 +46,7 @@ app.on('activate', () => {
     }
 });
 
-ipcMain.on('resize', (event, size) => {
+const resizeWindow = function(event, size) {
     main_window.setSize(size.width, size.height);
-});
+};
+ipcMain.on('resize', resizeWindow);
