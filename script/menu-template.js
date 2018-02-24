@@ -33,7 +33,7 @@ const addMenuItems = function(currentWindow, menu) {
     menu.items[0].submenu.append(new MenuItem({
         label: 'Open',
         click(){
-            currentWindow.webContents.send('action', 'open'); 
+            currentWindow.webContents.send('open'); 
         },
         accelerator: 'CmdOrCtrl+O'
     }));
@@ -43,7 +43,7 @@ const addMenuItems = function(currentWindow, menu) {
     menu.items[0].submenu.append(new MenuItem({
         role: 'quit'
     }));
-}
+};
 
 module.exports.MenuTemplate = MenuTemplate;
 module.exports.addMenuItems = addMenuItems;
