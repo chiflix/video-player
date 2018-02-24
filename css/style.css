@@ -22,9 +22,7 @@ html {
 #splayer {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-width: 640px;
-  min-height: 360px; }
+  height: 100%; }
 
 .main {
   position: relative;
@@ -46,8 +44,7 @@ html {
     object-fit: cover; }
 
 .widget {
-  opacity: 0;
-  animation: disappear 300ms;
+  animation: appear 300ms;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -112,87 +109,24 @@ html {
           height: 2px;
           background: #FFFFFF;
           box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5); }
-        .widget .widget-lower .widget-lower-progress .progress-normal .gradient {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 100%;
-          opacity: 0.2;
-          background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
-
-.widget-mouseover {
-  animation: appear 300ms;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  background: transparent;
-  overflow: hidden;
-  z-index: 100; }
-  .widget-mouseover .widget-middle {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%; }
-  .widget-mouseover .widget-lower {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%; }
-    .widget-mouseover .widget-lower .widget-lower-gradient {
-      z-index: 100;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
-      background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
-    .widget-mouseover .widget-lower .widget-lower-buttons {
-      z-index: 101;
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      height: 120px; }
-      .widget-mouseover .widget-lower .widget-lower-buttons .widget-lower-buttons-left {
-        position: absolute;
-        left: 30px;
-        bottom: 0; }
-      .widget-mouseover .widget-lower .widget-lower-buttons .widget-lower-buttons-right {
-        position: absolute;
-        right: 30px;
-        bottom: 0;
-        overflow: hidden; }
-        .widget-mouseover .widget-lower .widget-lower-buttons .widget-lower-buttons-right .widget-lbr-item {
-          position: relative;
-          float: right;
-          width: 30px;
-          height: 120px;
-          margin-left: 15px; }
-    .widget-mouseover .widget-lower .widget-lower-progress {
-      z-index: 102;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 100%; }
-      .widget-mouseover .widget-lower .widget-lower-progress .progress-normal {
-        position: relative;
-        bottom: 0;
-        width: 30%;
-        height: 100%; }
-        .widget-mouseover .widget-lower .widget-lower-progress .progress-normal .line-bar {
+        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar {
           position: absolute;
           bottom: 0;
           width: 100%;
           height: 2px;
           background: #FFFFFF;
           box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5); }
-        .widget-mouseover .widget-lower .widget-lower-progress .progress-normal .gradient {
+        .widget .widget-lower .widget-lower-progress .progress-normal .gradient {
           position: absolute;
           bottom: 0;
           width: 100%;
           height: 100%;
-          opacity: 0.2;
+          opacity: 0.1;
           background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
+
+.widget-mouseout {
+  opacity: 0;
+  animation: disappear 300ms; }
 
 #button-time {
   color: #FFFFFF; }

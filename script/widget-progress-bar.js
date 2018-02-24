@@ -1,4 +1,4 @@
-const {progress_bar, video, splayer} = require('./elements.js');
+const {progress_bar, video, splayer, progress_hot_region, line_bar} = require('./elements.js');
 
 let progress_interval;
 
@@ -15,5 +15,15 @@ const updateProgress = function() {
     progress_interval = window.setInterval(updateProgressElement, 100); 
 }
 
+const enlargeProgressBar = function() {
+    line_bar.className = 'line-bar line-bar-mouseover';
+}
+
+const recoverProgressBar = function() {
+    line_bar.className = 'line-bar';
+}
+
 video.addEventListener('loadedmetadata', updateProgress, false);
 splayer.addEventListener('click', updateProgress, false);
+progress_hot_region.addEventListener('mouseover', enlargeProgressBar, false);
+progress_hot_region.addEventListener('mouseout', recoverProgressBar, false);

@@ -11,7 +11,9 @@ const formatTime = function(time) {
     let formatted_time;
     if(time > -1) {
         let hour = parseInt(time / 3600);
+        time -= hour * 3600;
         let minute = parseInt(time / 60);
+        time -= minute * 60;
         let second = parseInt(time % 60);
 
         if(hour < 10) {

@@ -23,7 +23,7 @@ splayer.addEventListener('dragover', (event)=>{
 /*
  * 设定渲染进程监听
  * 'open': 打开新文件
- * 'pause': 暂停开始播放
+ * 'toggle': 切换暂停开始播放
  */
 const getVideoFile = function() {
     const files = remote.dialog.showOpenDialog(remote.getCurrentWindow(), {
@@ -45,7 +45,7 @@ const openNewVideo = function() {
         video.setAttribute('src', video_file);
     }
 };
-const pauseVideo = function() {
+const togglePlayState = function() {
     if(video.paused) {
         video.play();
     } else {
@@ -53,7 +53,7 @@ const pauseVideo = function() {
     }
 };
 ipcRenderer.on('open', openNewVideo);
-ipcRenderer.on('pause', pauseVideo);
+ipcRenderer.on('toggle', togglePlayState);
 
 //窗口大小控制
 const MIN_WIDTH = 320;
