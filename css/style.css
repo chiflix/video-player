@@ -151,7 +151,9 @@ html {
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.2px; }
+    letter-spacing: 0.2px;
+    -webkit-user-select: none;
+    user-select: none; }
   #button-time span.time-split {
     display: inline-block;
     margin: 0 2px;
@@ -160,7 +162,9 @@ html {
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.2px; }
+    letter-spacing: 0.2px;
+    -webkit-user-select: none;
+    user-select: none; }
   #button-time span#info-duration {
     display: inline-block;
     opacity: 0.5;
@@ -168,7 +172,9 @@ html {
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 600;
-    letter-spacing: 0.2px; }
+    letter-spacing: 0.2px;
+    -webkit-user-select: none;
+    user-select: none; }
 
 #widget-advanced #button-advanced {
   position: absolute;
