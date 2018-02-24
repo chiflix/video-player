@@ -110,8 +110,7 @@ html {
         position: relative;
         bottom: 0;
         width: 0;
-        height: 100%;
-        transition: width 200ms linear; }
+        height: 100%; }
         .widget .widget-lower .widget-lower-progress .progress-normal .line-bar {
           position: absolute;
           bottom: 0;

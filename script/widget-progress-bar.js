@@ -12,7 +12,7 @@ const updateProgressElement = function() {
 }
 
 const updateProgress = function() {
-    progress_interval = window.setInterval(updateProgressElement, 100); 
+    progress_interval = window.setInterval(updateProgressElement, 20); 
 }
 
 const enlargeProgressBar = function() {
