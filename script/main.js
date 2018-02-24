@@ -1,31 +1,31 @@
-const {app, BrowserWindow, Menu} = require('electron');
-const {MenuTemplate, addMenuItems} = require('./menu.js')
+const {app, BrowserWindow, Menu, ipcMain} = require('electron');
+const {MenuTemplate, addMenuItems} = require('./menu-template.js')
 
-let mainWindow;
-const windowConfig = {
+let main_window;
+const window_config = {
     width: 800,
-    height: 600,
+    height: 600
 };
 const createWindow = function() {
-    mainWindow = new BrowserWindow(windowConfig);
+    main_window = new BrowserWindow(window_config);
     //加载主界面
-    mainWindow.loadURL(`file://${__dirname}/../index.html`);
+    main_window.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
-    mainWindow.webContents.openDevTools();
+    main_window.webContents.openDevTools();
     
     //调整主界面大小时重新加载
-    mainWindow.on('resize', () => {
-        mainWindow.webContents.send('action', 'resize');
-    });
+    /*main_window.on('resize', () => {
+        //main_window.webContents.send('action', 'resize');
+    });*/
 
-    mainWindow.on('closed', () => {
-        mainWindow = null;
+    main_window.on('closed', () => {
+        main_window = null;
     });
 };
 
 const createMenu = function() {
     const menu = Menu.buildFromTemplate(MenuTemplate);
-    addMenuItems(mainWindow, menu);
+    addMenuItems(main_window, menu);
     Menu.setApplicationMenu(menu);
 };
 
@@ -41,7 +41,11 @@ app.on('window-all-closed', () => {
     }
 });
 app.on('activate', () => {
-    if(mainWindow === null){
+    if(main_window === null){
         createWindow();
     }
+});
+
+ipcMain.on('resize', (event, size) => {
+    main_window.setSize(size.width, size.height);
 });
