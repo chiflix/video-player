@@ -4,7 +4,10 @@ const {MenuTemplate, addMenuItems} = require('./menu-template.js')
 let main_window;
 const window_config = {
     width: 800,
-    height: 600
+    height: 600,
+    frame: false,
+    titleBarStyle: 'hidden-inset',
+    transparent: true
 };
 const createWindow = function() {
     main_window = new BrowserWindow(window_config);

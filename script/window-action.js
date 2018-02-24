@@ -3,9 +3,6 @@ const {splayer, video} = require('./elements.js');
 const VALID_EXTENSION = ['mp4', 'mkv', 'mov'];
 
 //设定拖放事件
-// splayer.addEventListener('dragenter', (event)=>{
-//     event.preventDefault();
-// }, false);
 const getFileExtension = function(file){
     let name = file.name.split('.');
     if(name.length === 1) {
@@ -111,7 +108,7 @@ const adjustWindowToNewVideo = function() {
 //用户调整窗口大小时维持视频比例不变，同时保持窗口宽和高都大于等于最小值
 const resizeWindow = function(event) {
     event.preventDefault();
-    setTimeout(() => {}, 600);//添加延时，使得拖放过程更美观
+    //setTimeout(() => {}, 0);//添加延时，使得拖放过程更美观
     getWindowSize();
 
     let new_width = current_width;
