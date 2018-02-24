@@ -1,24 +1,40 @@
 const {ipcRenderer, remote} = require('electron');
 const {splayer, video} = require('./elements.js');
+const VALID_EXTENSION = ['mp4', 'mkv', 'mov'];
 
 //设定拖放事件
-//TODO: 判断拖放入窗口的文件是否是可播放的视频格式
-splayer.addEventListener('dragenter', (event)=>{
-    event.preventDefault();
-}, false);
-splayer.addEventListener('drop', (event)=>{
+// splayer.addEventListener('dragenter', (event)=>{
+//     event.preventDefault();
+// }, false);
+const getFileExtension = function(file){
+    let name = file.name.split('.');
+    if(name.length === 1) {
+        return 'None';
+    } else {
+        return name.pop();
+    }
+}
+const processDrop = function(event) {
     event.stopPropagation();
     event.preventDefault();
     const file = event.dataTransfer.files[0];
 
     if(file){
-        const fileURL = URL.createObjectURL(file);
-        video.setAttribute('src', fileURL);
+        let file_extension = getFileExtension(file);
+        //拖放的文件不在支持格式列表中
+        if(VALID_EXTENSION.indexOf(file_extension) === -1) {
+            remote.dialog.showErrorBox('Oooooops!', 'Sorry, File Not Supported!');
+        } else {
+            const fileURL = URL.createObjectURL(file);
+            video.setAttribute('src', fileURL);
+        }
     }
-}, false);
-splayer.addEventListener('dragover', (event)=>{
+};
+const processDragOver = function(event) {
     event.preventDefault();
-}, false);
+};
+splayer.addEventListener('drop', processDrop, false);
+splayer.addEventListener('dragover', processDragOver, false);
 
 /*
  * 设定渲染进程监听
@@ -28,7 +44,7 @@ splayer.addEventListener('dragover', (event)=>{
 const getVideoFile = function() {
     const files = remote.dialog.showOpenDialog(remote.getCurrentWindow(), {
         filters: [
-            {name: 'Video Files', extensions: ['mp4', 'mkv', 'mov']}
+            {name: 'Video Files', extensions: VALID_EXTENSION}
         ],
         properties: ['openFile']
     });
@@ -95,6 +111,7 @@ const adjustWindowToNewVideo = function() {
 //用户调整窗口大小时维持视频比例不变，同时保持窗口宽和高都大于等于最小值
 const resizeWindow = function(event) {
     event.preventDefault();
+    setTimeout(() => {}, 600);//添加延时，使得拖放过程更美观
     getWindowSize();
 
     let new_width = current_width;
@@ -143,4 +160,5 @@ const resizeWindow = function(event) {
 //每当重新打开一个视频文件时获取其长宽
 video.addEventListener('canplay', adjustWindowToNewVideo, false);
 
+//window.addEventListener('resize', resizeWindow, false);
 window.addEventListener('resize', resizeWindow, false);
