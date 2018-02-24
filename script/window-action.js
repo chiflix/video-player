@@ -160,5 +160,13 @@ const resizeWindow = function(event) {
 //每当重新打开一个视频文件时获取其长宽
 video.addEventListener('canplay', adjustWindowToNewVideo, false);
 
-//window.addEventListener('resize', resizeWindow, false);
+//监听窗体缩放
 window.addEventListener('resize', resizeWindow, false);
+
+//禁止mac触摸板双指缩放
+const forbidZoom = function(event) {
+    if(event.deltaY % 1 !== 0) {
+        event.preventDefault();
+    }
+};
+document.addEventListener('mousewheel', forbidZoom, false);
