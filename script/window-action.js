@@ -17,7 +17,7 @@ const processDrop = function(event) {
     const file = event.dataTransfer.files[0];
 
     if(file){
-        alert(file.type);
+        //alert(file.type);
         let file_extension = getFileExtension(file);
         //拖放的文件不在支持格式列表中
         if(VALID_EXTENSION.indexOf(file_extension.toLowerCase()) === -1) {
