@@ -1,4 +1,4 @@
-const {progress_bar, video, splayer, progress_area, bar_line, progress_background} = require('./elements.js');
+const {progress_bar, video, splayer, progress_area, bar_line} = require('./elements.js');
 
 let progress_interval;
 
@@ -17,12 +17,10 @@ const updateProgress = function() {
 
 const enlargeProgressBar = function() {
     bar_line.className = 'bar-line bar-line--mouseover';
-    progress_background.className = 'progress-background progress-background--mouseover';
 }
 
 const recoverProgressBar = function() {
     bar_line.className = 'bar-line';
-    progress_background.className = 'progress-background';
 }
 
 video.addEventListener('loadedmetadata', updateProgress, false);

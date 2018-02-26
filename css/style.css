@@ -116,18 +116,7 @@ html {
           width: 100%;
           height: 100%;
           opacity: 0.1;
-          background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
-      .widget .widget-interactions .interactions-progress .progress-background {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 0px;
-        background: #fff;
-        opacity: 0;
-        transition: all 200ms; }
-      .widget .widget-interactions .interactions-progress .progress-background--mouseover {
-        opacity: 0.2;
-        height: 10px; }
+          background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 76%, #FFFFFF 100%); }
   .widget .widget-background {
     z-index: 10;
     position: absolute;
