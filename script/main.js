@@ -6,8 +6,10 @@ const window_config = {
     width: 800,
     height: 600,
     frame: false,
-    titleBarStyle: 'hidden-inset',
-    transparent: true
+    titleBarStyle: 'hiddenInset',
+    transparent: true,
+    //darkTheme: true
+    //opacity: 0.5
 };
 const createWindow = function() {
     main_window = new BrowserWindow(window_config);
@@ -15,11 +17,6 @@ const createWindow = function() {
     main_window.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
     main_window.webContents.openDevTools();
-    
-    //调整主界面大小时重新加载
-    /*main_window.on('resize', () => {
-        //main_window.webContents.send('action', 'resize');
-    });*/
 
     main_window.on('closed', () => {
         main_window = null;
@@ -50,6 +47,7 @@ app.on('activate', () => {
 });
 
 const resizeWindow = function(event, size) {
+    main_window.setAspectRatio(size.width / size.height);//设定窗口定宽高比
     main_window.setSize(size.width, size.height);
 };
 ipcMain.on('resize', resizeWindow);
