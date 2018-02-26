@@ -5,10 +5,10 @@ const button_play = document.getElementById('button-play');
 const info_current_time = document.getElementById('info-current-time');
 const info_duration = document.getElementById('info-duration');
 const progress_bar = document.getElementById('progress-bar');
-const progress_hot_region = document.getElementById('progress-hot-region');
-const line_bar = document.getElementById('line-bar');
+const progress_area = document.getElementById('progress-area');
+const bar_line = document.getElementById('bar-line');
 const progress_background = document.getElementById('progress-background');
-const widget_middle = document.getElementById('widget-middle');
+const interactions_play = document.getElementById('interactions-play');
 
 //module.exports.splayer = splayer;
 module.exports = {
@@ -19,8 +19,8 @@ module.exports = {
     info_current_time: info_current_time,
     info_duration: info_duration,
     progress_bar: progress_bar,
-    progress_hot_region: progress_hot_region,
-    line_bar: line_bar,
+    progress_area: progress_area,
+    bar_line: bar_line,
     progress_background: progress_background,
-    widget_middle: widget_middle
+    interactions_play: interactions_play
 }

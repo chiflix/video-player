@@ -1,11 +1,11 @@
-const {widget, splayer} = require('./elements.js');
+const {widget} = require('./elements.js');
 
 const displayWidget = function() {
     widget.className = 'widget';
 }
 const hideWidget = function() {
-    widget.className = 'widget widget-mouseout';
+    widget.className = 'widget widget--mouseout';
 }
 
-splayer.addEventListener('mouseover', displayWidget, false);
-splayer.addEventListener('mouseout', hideWidget, false);
+widget.addEventListener('mouseover', displayWidget, false);
+widget.addEventListener('mouseout', hideWidget, false);

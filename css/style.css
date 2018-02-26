@@ -1,13 +1,3 @@
-@keyframes appear {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-@keyframes disappear {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
 @font-face {
   font-family: 'Avenir';
   src: url("../fontface/Avenir.ttc"); }
@@ -46,81 +36,71 @@ html {
     object-fit: cover; }
 
 .widget {
-  animation: appear 300ms;
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 4px;
   background: transparent;
   overflow: hidden;
-  z-index: 100; }
-  .widget .widget-upper {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 40px;
-    z-index: 200;
-    -webkit-app-region: drag; }
-  .widget .widget-middle {
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 200ms; }
+  .widget .widget-interactions {
+    z-index: 20;
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: 100; }
-  .widget .widget-lower {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 50; }
-    .widget .widget-lower .widget-lower-gradient {
+    background: transparent; }
+    .widget .widget-interactions .interactions-drag {
+      z-index: 300;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 40px;
+      z-index: 200;
+      -webkit-app-region: drag; }
+    .widget .widget-interactions .interactions-play {
       z-index: 100;
       position: absolute;
-      bottom: 0;
+      top: 0;
       width: 100%;
-      height: 100%;
-      opacity: 0.3;
-      background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
-    .widget .widget-lower .widget-lower-buttons {
-      z-index: 101;
+      height: 100%; }
+    .widget .widget-interactions .interactions-buttons {
+      z-index: 400;
       position: absolute;
       bottom: 20px;
       width: 100%;
-      height: 120px; }
-      .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-left {
+      height: 120px;
+      background: transparent; }
+      .widget .widget-interactions .interactions-buttons .buttons-item {
         position: absolute;
-        left: 30px;
         bottom: 0; }
-      .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-right {
-        position: absolute;
+      .widget .widget-interactions .interactions-buttons .buttons-item--lg {
+        left: 30px; }
+      .widget .widget-interactions .interactions-buttons .buttons-item--sm {
         right: 30px;
-        bottom: 0;
-        overflow: hidden; }
-        .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-right .widget-lbr-item {
-          position: relative;
-          float: right;
-          width: 30px;
-          height: 120px;
-          margin-left: 15px; }
-    .widget .widget-lower .widget-lower-progress {
-      z-index: 102;
+        width: 30px;
+        height: 120px; }
+      .widget .widget-interactions .interactions-buttons .buttons-item--sm:nth-of-type(2) {
+        right: 75px; }
+    .widget .widget-interactions .interactions-progress {
+      z-index: 200;
       position: absolute;
       bottom: 0;
       width: 100%;
       height: 100%; }
-      .widget .widget-lower .widget-lower-progress .interactive-area {
+      .widget .widget-interactions .interactions-progress .progress-area {
         position: absolute;
-        z-index: 300;
         bottom: 0;
         width: 100%;
-        height: 30px;
-        background: transparent; }
-      .widget .widget-lower .widget-lower-progress .progress-normal {
-        position: relative;
+        height: 30px; }
+      .widget .widget-interactions .interactions-progress .progress-bar {
+        position: absolute;
         bottom: 0;
         width: 0;
         height: 100%; }
-        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar {
+        .widget .widget-interactions .interactions-progress .progress-bar .bar-line {
           position: absolute;
           bottom: 0;
           width: 100%;
@@ -128,33 +108,41 @@ html {
           background: #FFFFFF;
           box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
           transition: height 200ms; }
-        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar.line-bar-mouseover {
+        .widget .widget-interactions .interactions-progress .progress-bar .bar-line--mouseover {
           height: 10px; }
-        .widget .widget-lower .widget-lower-progress .progress-normal .gradient {
+        .widget .widget-interactions .interactions-progress .progress-bar .bar-gradient {
           position: absolute;
           bottom: 0;
           width: 100%;
           height: 100%;
           opacity: 0.1;
           background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
-      .widget .widget-lower .widget-lower-progress .progress-background {
+      .widget .widget-interactions .interactions-progress .progress-background {
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 10px;
+        height: 0px;
         background: #fff;
         opacity: 0;
-        transition: opacity 200ms; }
-      .widget .widget-lower .widget-lower-progress .progress-background.progress-background-mouseover {
-        opacity: 0.2; }
+        transition: all 200ms; }
+      .widget .widget-interactions .interactions-progress .progress-background--mouseover {
+        opacity: 0.2;
+        height: 10px; }
+  .widget .widget-background {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
 
-.widget-mouseout {
-  opacity: 0;
-  animation: disappear 300ms; }
+.widget--mouseout {
+  opacity: 0; }
 
-#button-time {
+#button-time--normal {
   color: #FFFFFF; }
-  #button-time span#info-current-time {
+  #button-time--normal span#info-current-time {
     display: inline-block;
     font-family: 'Avenir';
     font-size: 18px;
@@ -163,7 +151,7 @@ html {
     letter-spacing: 0.2px;
     -webkit-user-select: none;
     user-select: none; }
-  #button-time span.time-split {
+  #button-time--normal span.time-split {
     display: inline-block;
     margin: 0 2px;
     opacity: 0.5;
@@ -174,7 +162,7 @@ html {
     letter-spacing: 0.2px;
     -webkit-user-select: none;
     user-select: none; }
-  #button-time span#info-duration {
+  #button-time--normal span#info-duration {
     display: inline-block;
     opacity: 0.5;
     font-family: 'Avenir';
@@ -185,21 +173,21 @@ html {
     -webkit-user-select: none;
     user-select: none; }
 
-#widget-advanced #button-advanced {
+#button-advanced {
   position: absolute;
   bottom: 0px;
   width: 30px;
   height: 24px; }
-  #widget-advanced #button-advanced embed {
+  #button-advanced embed {
     width: 30px;
     height: 24px; }
 
-#widget-volume #button-volume {
+#button-volume {
   position: absolute;
   bottom: 0px;
   width: 30px;
   height: 24px; }
-  #widget-volume #button-volume embed {
+  #button-volume embed {
     width: 30px;
     height: 24px; }
 

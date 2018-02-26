@@ -8,52 +8,43 @@
 <body id="splayer">
 	<div class="main">
 		<div class="widget" id="widget">
-			<div class="widget-upper"></div>
-			<div class="widget-middle" id="widget-middle">
-				<div id="button-play">
-					<embed src="image/icon-play.svg" type="image/svg+xml">
+			<div class="widget-interactions">
+				<div class="interactions-progress">
+					<div class="progress-background" id="progress-background"></div>
+					<div class="progress-bar" id="progress-bar">
+						<div class="bar-line" id="bar-line"></div>
+						<div class="bar-gradient"></div>
+					</div>
+					<div class="progress-area" id="progress-area"></div>
 				</div>
-			</div>
-			<div class="widget-lower">
-				<div class="widget-lower-buttons">
-					<div class="widget-lower-buttons-left">
-						<div id="button-time">
+				<div class="interactions-play" id="interactions-play"></div>
+				<div class="interactions-drag"></div>
+				<div class="interactions-buttons">
+					<div class="buttons-item buttons-item--sm">
+						<div id="button-advanced">
+							<embed src="image/icon-advanced.svg" type="image/svg+xml">
+						</div>
+					</div>
+					<div class="buttons-item buttons-item--sm">
+						<div id="button-volume">
+							<embed src="image/icon-volume.svg" type="image/svg+xml">
+						</div>
+					</div>
+					<div class="buttons-item buttons-item--lg">
+						<div id="button-time--normal">
 							<span id="info-current-time"></span>
 							<span class="time-split">/</span>
 							<span id="info-duration"></span>
 						</div>
 					</div>
-					<div class="widget-lower-buttons-right">
-						<div class="widget-lbr-item" id="widget-advanced">
-							<div id="button-advanced">
-								<embed src="image/icon-advanced.svg" type="image/svg+xml">
-							</div>
-						</div>
-						<div class="widget-lbr-item" id="widget-volume">
-							<div id="button-volume">
-								<embed src="image/icon-volume.svg" type="image/svg+xml">
-							</div>
-						</div>
-					</div>
 				</div>
-				<div class="widget-lower-progress">
-					<div class="interactive-area" id="progress-hot-region"></div>
-					<div class="progress-normal" id="progress-bar">
-						<div class="line-bar" id="line-bar"></div>
-						<div class="gradient"></div>
-					</div>
-					<div class="progress-background" id="progress-background"></div>
-				</div>
-				<div class="widget-lower-gradient"></div>
 			</div>
+			<div class="widget-background"></div>
 		</div>
-		<!-- 我把下面这个div的id属性"video"删去了，给了video一个id属性"video" -->
 		<div class="video-box">
 			<video src="media/animation.mp4" autoplay="autoplay" id="video" preload="metadata"></video>
 		</div>
 	</div>
-	<!-- 像以下这样引入js文件 -->
-	<!-- <script src="script/elements.js"></script> 这种方式引入js会破坏模块化的特性 -->
 	<script>
 		require('./script/elements.js');
 		require('./script/elements-action.js');

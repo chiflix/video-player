@@ -1,4 +1,4 @@
-const {progress_bar, video, splayer, progress_hot_region, line_bar, progress_background} = require('./elements.js');
+const {progress_bar, video, splayer, progress_area, bar_line, progress_background} = require('./elements.js');
 
 let progress_interval;
 
@@ -16,16 +16,16 @@ const updateProgress = function() {
 }
 
 const enlargeProgressBar = function() {
-    line_bar.className = 'line-bar line-bar-mouseover';
-    progress_background.className = 'progress-background progress-background-mouseover';
+    bar_line.className = 'bar-line bar-line--mouseover';
+    progress_background.className = 'progress-background progress-background--mouseover';
 }
 
 const recoverProgressBar = function() {
-    line_bar.className = 'line-bar';
+    bar_line.className = 'bar-line';
     progress_background.className = 'progress-background';
 }
 
 video.addEventListener('loadedmetadata', updateProgress, false);
 splayer.addEventListener('click', updateProgress, false);
-progress_hot_region.addEventListener('mouseover', enlargeProgressBar, false);
-progress_hot_region.addEventListener('mouseout', recoverProgressBar, false);
+progress_area.addEventListener('mouseover', enlargeProgressBar, false);
+progress_area.addEventListener('mouseout', recoverProgressBar, false);

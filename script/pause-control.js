@@ -1,4 +1,4 @@
-const {widget_middle} = require('./elements.js');
+const {interactions_play} = require('./elements.js');
 const {remote} = require('electron');
 const current_window = remote.getCurrentWindow();
 
@@ -12,7 +12,7 @@ const listenSpaceKeyDown = function(event) {
     }
 };
 
-widget_middle.addEventListener('click', togglePlayState, false);
+interactions_play.addEventListener('click', togglePlayState, false);
 
 //全局添加键盘监听
 document.addEventListener('keydown', listenSpaceKeyDown, false);
