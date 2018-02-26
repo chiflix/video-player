@@ -6,7 +6,7 @@
 + 安装node: brew install node
 +
 + 在终端中进入项目根目录
-+ 安装electron: npm install electron [-g]
++ 安装electron: npm install electron-prebuilt [-g]
 +
 + 查看app运行情况: npm start
 +
