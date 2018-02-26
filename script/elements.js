@@ -8,6 +8,7 @@ const progress_bar = document.getElementById('progress-bar');
 const progress_hot_region = document.getElementById('progress-hot-region');
 const line_bar = document.getElementById('line-bar');
 const progress_background = document.getElementById('progress-background');
+const widget_middle = document.getElementById('widget-middle');
 
 //module.exports.splayer = splayer;
 module.exports = {
@@ -20,5 +21,6 @@ module.exports = {
     progress_bar: progress_bar,
     progress_hot_region: progress_hot_region,
     line_bar: line_bar,
-    progress_background: progress_background
+    progress_background: progress_background,
+    widget_middle: widget_middle
 }
