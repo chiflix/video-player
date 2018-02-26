@@ -1,5 +1,7 @@
 const {app, BrowserWindow, Menu, ipcMain} = require('electron');
 const {MenuTemplate, addMenuItems} = require('./menu-template.js')
+const MIN_WIDTH = 320;
+const MIN_HEIGHT = 180;
 
 let main_window;
 const window_config = {
@@ -17,6 +19,9 @@ const createWindow = function() {
     main_window.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
     main_window.webContents.openDevTools();
+
+    //设定窗口最小尺寸
+    main_window.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
 
     main_window.on('closed', () => {
         main_window = null;
