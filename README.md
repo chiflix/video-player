@@ -1,6 +1,13 @@
 # video-player 
 [![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
 
+# electron降级（新版electron会导致播放卡顿）
++ 删除原有版本：
++ npm uninstall electron -g
++ npm uninstall electron
++ 
++ 安装旧版本：
++ npm install electron-prebuilt [-g]
 
 # clone后运行软件的方法
 + 安装node: brew install node
@@ -12,6 +19,7 @@
 +
 + 安装app打包程序: npm install electron-packager
 + 打包app: electron-packager . theNameOfTheApp --electron-version=yourElectronVersion [--overwrite]
++ 其中打包时使用的electron版本可以指定为1.4.13
 
 # 使用eslint的方法
 + 安装eslint: npm install eslint --save-dev
