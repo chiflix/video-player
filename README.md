@@ -2,6 +2,7 @@
 [![JavaScript Style Guide: Good Parts](https://img.shields.io/badge/code%20style-goodparts-brightgreen.svg?style=flat)](https://github.com/dwyl/goodparts "JavaScript The Good Parts")
 
 # electron降级（新版electron会导致播放卡顿）
++ 进入项目文件根目录
 + 删除原有版本：
 + npm uninstall electron -g
 + npm uninstall electron
