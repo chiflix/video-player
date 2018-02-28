@@ -60,7 +60,6 @@ const openNewVideo = function() {
     }
 };
 const togglePlayState = function() {
-    console.log(video.paused);
     if(video.paused) {
         video.play();
     } else {
