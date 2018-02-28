@@ -24,9 +24,7 @@ const processDrop = function(event) {
             remote.dialog.showErrorBox('Oooooops!', 'Sorry, File Not Supported!');
         } else {
             const fileURL = URL.createObjectURL(file);
-            console.log(fileURL);
             video.setAttribute('src', fileURL);
-            console.log('here I am');
         }
     }
 };
@@ -151,7 +149,6 @@ const resizeWindow = function(event) {
 };
 //监听窗体缩放
 window.addEventListener('resize', resizeWindow, false);
-
 
 //禁止mac触摸板双指缩放
 const forbidZoom = function(event) {
