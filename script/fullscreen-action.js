@@ -1,5 +1,5 @@
 const {remote, ipcRenderer} = require('electron');
-const {widget_middle} = require('./elements.js');
+const {area_playstate} = require('./elements.js');
 const current_window = remote.getCurrentWindow();
 
 //全屏状态下按下ESC时退出全屏状态
@@ -16,4 +16,4 @@ document.addEventListener('keydown', leaveFullScreen, false);
 const toggleFullScreen = function() {
 	ipcRenderer.send('toggleFullScreenState');
 };
-widget_middle.addEventListener('dblclick', toggleFullScreen, false);
+area_playstate.addEventListener('dblclick', toggleFullScreen, false);

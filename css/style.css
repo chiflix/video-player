@@ -1,219 +1,140 @@
-@keyframes appear {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-@keyframes disappear {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
+@charset "UTF-8";
 @font-face {
   font-family: 'Avenir';
   src: url("../fontface/Avenir.ttc"); }
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background: transparent; }
 
 html {
   width: 100%;
-  height: 100%;
-  background: transparent !important; }
+  height: 100%; }
 
-#splayer {
-  background: transparent !important;
+body {
   position: relative;
   width: 100%;
   height: 100%; }
 
-.main {
-  background: transparent !important;
+.application {
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 4px;
   overflow: hidden; }
 
-.video-box {
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+/*
+ * Controller
+ * 视频控制组件
+ */
+.video-controller {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background: transparent !important; }
-  .video-box video {
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 200ms; }
+  .video-controller .background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
+  .video-controller .playstate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+  .video-controller .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px; }
+  .video-controller .progress--played {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; }
+    .video-controller .progress--played .line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
+      transition: height 200ms; }
+      .video-controller .progress--played .line.line--mouseover {
+        height: 10px; }
+    .video-controller .progress--played .light {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 300px;
+      opacity: 0.1;
+      background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 76%, #FFFFFF 100%); }
+  .video-controller .timing {
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    width: 100%;
+    height: 24px; }
+    .video-controller .timing .time {
+      display: inline-block;
+      color: #FFFFFF;
+      font: 600 18px 'Avenir';
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      user-select: none;
+      opacity: .5; }
+    .video-controller .timing .timing--current {
+      opacity: 1; }
+  .video-controller .volume {
+    position: absolute;
+    bottom: 25px;
+    right: 75px;
+    width: 30px;
+    height: 120px; }
+  .video-controller .advanced {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    width: 30px;
+    height: 120px; }
+  .video-controller .button {
+    position: absolute;
+    bottom: 0px;
+    width: 30px;
+    height: 24px; }
+    .video-controller .button embed {
+      width: 30px;
+      height: 24px; }
+  .video-controller.video-controller--mouseout {
+    opacity: 0; }
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden; }
+  .video video {
     width: 100%;
     height: 100%;
     object-fit: cover; }
-
-.widget {
-  animation: appear 300ms;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  background: transparent;
-  overflow: hidden;
-  z-index: 100; }
-  .widget .widget-upper {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 40px;
-    z-index: 200;
-    -webkit-app-region: drag; }
-  .widget .widget-middle {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100; }
-  .widget .widget-lower {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 50; }
-    .widget .widget-lower .widget-lower-gradient {
-      z-index: 100;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.3;
-      background-image: linear-gradient(-180deg, transparent 0%, rgba(0, 0, 0, 0.19) 62%, rgba(0, 0, 0, 0.29) 100%); }
-    .widget .widget-lower .widget-lower-buttons {
-      z-index: 101;
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      height: 120px; }
-      .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-left {
-        position: absolute;
-        left: 30px;
-        bottom: 0; }
-      .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-right {
-        position: absolute;
-        right: 30px;
-        bottom: 0;
-        overflow: hidden; }
-        .widget .widget-lower .widget-lower-buttons .widget-lower-buttons-right .widget-lbr-item {
-          position: relative;
-          float: right;
-          width: 30px;
-          height: 120px;
-          margin-left: 15px; }
-    .widget .widget-lower .widget-lower-progress {
-      z-index: 102;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 100%; }
-      .widget .widget-lower .widget-lower-progress .interactive-area {
-        position: absolute;
-        z-index: 300;
-        bottom: 0;
-        width: 100%;
-        height: 30px;
-        background: transparent; }
-      .widget .widget-lower .widget-lower-progress .progress-normal {
-        position: relative;
-        bottom: 0;
-        width: 0;
-        height: 100%; }
-        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 2px;
-          background: #FFFFFF;
-          box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
-          transition: height 200ms; }
-        .widget .widget-lower .widget-lower-progress .progress-normal .line-bar.line-bar-mouseover {
-          height: 10px; }
-        .widget .widget-lower .widget-lower-progress .progress-normal .gradient {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          height: 100%;
-          opacity: 0.1;
-          background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 46%, #FFFFFF 100%); }
-      .widget .widget-lower .widget-lower-progress .progress-background {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 10px;
-        background: #fff;
-        opacity: 0;
-        transition: opacity 200ms; }
-      .widget .widget-lower .widget-lower-progress .progress-background.progress-background-mouseover {
-        opacity: 0.2; }
-
-.widget-mouseout {
-  opacity: 0;
-  animation: disappear 300ms; }
-
-#button-time {
-  color: #FFFFFF; }
-  #button-time span#info-current-time {
-    display: inline-block;
-    font-family: 'Avenir';
-    font-size: 18px;
-    color: #FFFFFF;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    -webkit-user-select: none;
-    user-select: none; }
-  #button-time span.time-split {
-    display: inline-block;
-    margin: 0 2px;
-    opacity: 0.5;
-    font-family: 'Avenir';
-    font-size: 18px;
-    color: #FFFFFF;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    -webkit-user-select: none;
-    user-select: none; }
-  #button-time span#info-duration {
-    display: inline-block;
-    opacity: 0.5;
-    font-family: 'Avenir';
-    font-size: 18px;
-    color: #FFFFFF;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    -webkit-user-select: none;
-    user-select: none; }
-
-#widget-advanced #button-advanced {
-  position: absolute;
-  bottom: 0px;
-  width: 30px;
-  height: 24px; }
-  #widget-advanced #button-advanced embed {
-    width: 30px;
-    height: 24px; }
-
-#widget-volume #button-volume {
-  position: absolute;
-  bottom: 0px;
-  width: 30px;
-  height: 24px; }
-  #widget-volume #button-volume embed {
-    width: 30px;
-    height: 24px; }
-
-#button-play {
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -42.5px;
-  margin-left: -42.5px;
-  width: 85px;
-  height: 85px; }
-  #button-play embed {
-    width: 85px;
-    height: 85px; }
 
 /*# sourceMappingURL=style.css.map */

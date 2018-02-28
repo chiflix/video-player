@@ -3,61 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
-	<title>SPlayer</title>
+	<title>Splayer</title>
 </head>
-<body id="splayer">
-	<div class="main">
-		<div class="widget" id="widget">
-			<div class="widget-upper"></div>
-			<div class="widget-middle" id="widget-middle">
-				<div id="button-play">
-					<embed src="image/icon-play.svg" type="image/svg+xml">
-				</div>
-			</div>
-			<div class="widget-lower">
-				<div class="widget-lower-buttons">
-					<div class="widget-lower-buttons-left">
-						<div id="button-time">
-							<span id="info-current-time"></span>
-							<span class="time-split">/</span>
-							<span id="info-duration"></span>
-						</div>
-					</div>
-					<div class="widget-lower-buttons-right">
-						<div class="widget-lbr-item" id="widget-advanced">
-							<div id="button-advanced">
-								<embed src="image/icon-advanced.svg" type="image/svg+xml">
-							</div>
-						</div>
-						<div class="widget-lbr-item" id="widget-volume">
-							<div id="button-volume">
-								<embed src="image/icon-volume.svg" type="image/svg+xml">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="widget-lower-progress">
-					<div class="interactive-area" id="progress-hot-region"></div>
-					<div class="progress-normal" id="progress-bar">
-						<div class="line-bar" id="line-bar"></div>
-						<div class="gradient"></div>
-					</div>
-					<div class="progress-background" id="progress-background"></div>
-				</div>
-				<div class="widget-lower-gradient"></div>
-			</div>
+<body>
+
+<div class="application" id="application">
+	<div class="player" id="player">
+		<div class="video" id="video">
+			<video id="html-video-object" src="media/animation.mp4" autoplay="autoplay" preload="metadata"></video>
 		</div>
-		<!-- 我把下面这个div的id属性"video"删去了，给了video一个id属性"video" -->
-		<div class="video-box">
-			<video src="media/animation.mp4" autoplay="autoplay" id="video" preload="metadata"></video>
+		<div  class="video-controller" id="video-controller">
+			<div class="background"></div>
+			<div class="playstate" id="playstate"></div>
+			<div class="progress" id="progress">
+				<div class="progress--played" id="progress--played">
+					<div class="line" id="progress--line"></div>
+					<div class="light"></div>
+				</div>
+			</div>
+			<div class="timing" id="timing">
+					<span class="time timing--current" id="timing--current"></span>
+					<span class="time">/</span>
+					<span class="time timing--total" id="timing--total"></span>
+			</div>
+			<div class="volume" id="volume">
+				<div class="button" id="volume--button">
+					<embed src="image/icon-volume.svg" type="image/svg+xml">
+				</div>
+			</div>
+			<div class="advanced" id="advanced">
+				<div class="button" id="advance--button">
+					<embed src="image/icon-advanced.svg" type="image/svg+xml">
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- 像以下这样引入js文件 -->
-	<!-- <script src="script/elements.js"></script> 这种方式引入js会破坏模块化的特性 -->
-	<script>
-		require('./script/elements.js');
-		require('./script/elements-action.js');
-		require('./script/window-action.js');
-	</script>
+</div>
+<script>
+	require('./script/elements.js');
+	require('./script/elements-action.js');
+	require('./script/window-action.js');
+</script>
 </body>
 </html>

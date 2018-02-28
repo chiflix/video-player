@@ -18,7 +18,9 @@
     "url": "https://github.com/chiflix/video-player/issues"
   },
   "homepage": "https://github.com/chiflix/video-player#readme",
-  "dependencies": {},
+  "dependencies": {
+    "electron-packager": "^11.0.1"
+  },
   "devDependencies": {
     "eslint": "^4.18.1"
   }
