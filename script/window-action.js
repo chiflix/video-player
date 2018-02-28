@@ -24,7 +24,9 @@ const processDrop = function(event) {
             remote.dialog.showErrorBox('Oooooops!', 'Sorry, File Not Supported!');
         } else {
             const fileURL = URL.createObjectURL(file);
+            console.log(fileURL);
             video.setAttribute('src', fileURL);
+            console.log('here I am');
         }
     }
 };
@@ -60,6 +62,7 @@ const openNewVideo = function() {
     }
 };
 const togglePlayState = function() {
+    console.log(video.paused);
     if(video.paused) {
         video.play();
     } else {
@@ -110,7 +113,6 @@ const adjustWindowToNewVideo = function() {
 video.addEventListener('canplay', adjustWindowToNewVideo, false);
 
 //设定了setAspectRatio，不再需要手动设置窗口宽高
-/*
 //用户调整窗口大小时维持视频比例不变，同时保持窗口宽和高都大于等于最小值
 const resizeWindow = function(event) {
     event.preventDefault();
@@ -149,7 +151,7 @@ const resizeWindow = function(event) {
 };
 //监听窗体缩放
 window.addEventListener('resize', resizeWindow, false);
-*/
+
 
 //禁止mac触摸板双指缩放
 const forbidZoom = function(event) {

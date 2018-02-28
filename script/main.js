@@ -52,7 +52,7 @@ app.on('activate', () => {
 });
 
 const resizeWindow = function(event, size) {
-    main_window.setAspectRatio(size.width / size.height);//设定窗口定宽高比
+    //main_window.setAspectRatio(size.width / size.height);//设定窗口定宽高比
     main_window.setSize(size.width, size.height);
 };
 ipcMain.on('resize', resizeWindow);
