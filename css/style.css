@@ -21,7 +21,8 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-app-region: drag; }
 
 .player {
   position: relative;
@@ -135,6 +136,6 @@ body {
   .video video {
     width: 100%;
     height: 100%;
-    object-fit: cover; }
+    object-fit: contain; }
 
 /*# sourceMappingURL=style.css.map */
