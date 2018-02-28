@@ -56,3 +56,12 @@ const resizeWindow = function(event, size) {
     main_window.setSize(size.width, size.height);
 };
 ipcMain.on('resize', resizeWindow);
+
+const toggleFullScreenState = function() {
+    if(main_window.isFullScreen()) {
+        main_window.setFullScreen(false);
+    } else {
+        main_window.setFullScreen(true);
+    }
+};
+ipcMain.on('toggleFullScreenState', toggleFullScreenState);
