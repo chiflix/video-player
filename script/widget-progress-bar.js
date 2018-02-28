@@ -1,4 +1,4 @@
-const {progress_bar, video, splayer, progress_area, bar_line} = require('./elements.js');
+const {video, player, area_progress, progress_played, progress_line} = require('./elements.js');
 
 let progress_interval;
 
@@ -8,7 +8,7 @@ const updateProgressElement = function() {
         window.clearInterval(progress_interval); 
         return; 
     }
-    progress_bar.style.width = percentage * 100 + '%';
+    progress_played.style.width = percentage * 100 + '%';
 }
 
 const updateProgress = function() {
@@ -16,14 +16,14 @@ const updateProgress = function() {
 }
 
 const enlargeProgressBar = function() {
-    bar_line.className = 'bar-line bar-line--mouseover';
+    progress_line.className = 'line line--mouseover';
 }
 
 const recoverProgressBar = function() {
-    bar_line.className = 'bar-line';
+    progress_line.className = 'line';
 }
 
 video.addEventListener('loadedmetadata', updateProgress, false);
-splayer.addEventListener('click', updateProgress, false);
-progress_area.addEventListener('mouseover', enlargeProgressBar, false);
-progress_area.addEventListener('mouseout', recoverProgressBar, false);
+player.addEventListener('click', updateProgress, false);
+area_progress.addEventListener('mouseover', enlargeProgressBar, false);
+area_progress.addEventListener('mouseout', recoverProgressBar, false);

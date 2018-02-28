@@ -1,4 +1,4 @@
-const {video, info_current_time, info_duration} = require('./elements.js');
+const {video, info_timing_current, info_timing_total} = require('./elements.js');
 
 let time_interval;
 
@@ -47,12 +47,12 @@ const updateTimeElement = function(time, element) {
 
 const updateDuration = function() {
     const time = formatTime(video.duration);
-    updateTimeElement(time, info_duration);
+    updateTimeElement(time, info_timing_total);
 };
 
 const updateCurrentTime = function() {
     const time = formatTime(video.currentTime);
-    updateTimeElement(time, info_current_time);
+    updateTimeElement(time, info_timing_current);
 };
 
 const setUpdateInterval = function() {

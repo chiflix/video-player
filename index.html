@@ -3,51 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
-	<title>SPlayer</title>
+	<title>Splayer</title>
 </head>
-<body id="splayer">
-	<div class="main">
-		<div class="widget" id="widget">
-			<div class="widget-interactions">
-				<div class="interactions-progress">
-					<div class="progress-bar" id="progress-bar">
-						<div class="bar-gradient"></div>
-						<div class="bar-line" id="bar-line"></div>
-					</div>
-					<div class="progress-area" id="progress-area"></div>
-				</div>
-				<div class="interactions-play" id="interactions-play"></div>
-				<div class="interactions-drag"></div>
-				<div class="interactions-buttons">
-					<div class="buttons-item buttons-item--sm">
-						<div id="button-advanced">
-							<embed src="image/icon-advanced.svg" type="image/svg+xml">
-						</div>
-					</div>
-					<div class="buttons-item buttons-item--sm">
-						<div id="button-volume">
-							<embed src="image/icon-volume.svg" type="image/svg+xml">
-						</div>
-					</div>
-					<div class="buttons-item buttons-item--lg">
-						<div id="button-time--normal">
-							<span id="info-current-time"></span>
-							<span class="time-split">/</span>
-							<span id="info-duration"></span>
-						</div>
-					</div>
+<body>
+
+<div class="application" id="application">
+	<div class="player" id="player">
+		<div class="video" id="video">
+			<video id="html-video-object" src="media/animation.mp4" autoplay="autoplay" preload="metadata"></video>
+		</div>
+		<div  class="video-controller" id="video-controller">
+			<div class="background"></div>
+			<div class="playstate" id="playstate"></div>
+			<div class="progress" id="progress">
+				<div class="progress--played" id="progress--played">
+					<div class="line" id="progress--line"></div>
+					<div class="light"></div>
 				</div>
 			</div>
-			<div class="widget-background"></div>
-		</div>
-		<div class="video-box">
-			<video src="media/animation.mp4" autoplay="autoplay" id="video" preload="metadata"></video>
+			<div class="timing" id="timing">
+					<span class="time timing--current" id="timing--current"></span>
+					<span class="time">/</span>
+					<span class="time timing--total" id="timing--total"></span>
+			</div>
+			<div class="volume" id="volume">
+				<div class="button" id="volume--button">
+					<embed src="image/icon-volume.svg" type="image/svg+xml">
+				</div>
+			</div>
+			<div class="advanced" id="advanced">
+				<div class="button" id="advance--button">
+					<embed src="image/icon-advanced.svg" type="image/svg+xml">
+				</div>
+			</div>
 		</div>
 	</div>
-	<script>
-		require('./script/elements.js');
-		require('./script/elements-action.js');
-		require('./script/window-action.js');
-	</script>
+</div>
+<script>
+	require('./script/elements.js');
+	require('./script/elements-action.js');
+	require('./script/window-action.js');
+</script>
 </body>
 </html>

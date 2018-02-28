@@ -1,11 +1,11 @@
-const {widget} = require('./elements.js');
+const {video_controller} = require('./elements.js');
 
 const displayWidget = function() {
-    widget.className = 'widget';
+    video_controller.className = 'video-controller';
 }
 const hideWidget = function() {
-    widget.className = 'widget widget--mouseout';
+    video_controller.className = 'video-controller video-controller--mouseout';
 }
 
-widget.addEventListener('mouseover', displayWidget, false);
-widget.addEventListener('mouseout', hideWidget, false);
+video_controller.addEventListener('mouseover', displayWidget, false);
+video_controller.addEventListener('mouseout', hideWidget, false);

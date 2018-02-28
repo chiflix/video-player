@@ -1,5 +1,5 @@
 const {ipcRenderer, remote} = require('electron');
-const {splayer, video} = require('./elements.js');
+const {player, video} = require('./elements.js');
 const VALID_EXTENSION = ['mp4', 'mkv', 'mov'];
 
 //设定拖放事件
@@ -31,8 +31,8 @@ const processDrop = function(event) {
 const processDragOver = function(event) {
     event.preventDefault();
 };
-splayer.addEventListener('drop', processDrop, false);
-splayer.addEventListener('dragover', processDragOver, false);
+player.addEventListener('drop', processDrop, false);
+player.addEventListener('dragover', processDragOver, false);
 
 /*
  * 设定渲染进程监听
