@@ -4,3 +4,4 @@ require('./pause-control.js');
 require('./widget-progress-bar.js');
 require('./fullscreen-action.js');
 require('./fast-forward.js');
+require('./volume-control.js');
