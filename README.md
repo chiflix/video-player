@@ -25,6 +25,8 @@
 # 使用eslint的方法
 + 安装eslint: npm install eslint --save-dev
 + 查看eslint检测情况: npm run lint
++ 
++ 使用eslint自动更正部分错误: npm run fix
 
 # NQ和ZY的临时命名规范
 [force] 命名不使用缩写(紫嫣女士说不能用拼音)
