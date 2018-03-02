@@ -1,5 +1,6 @@
 const {ipcRenderer, remote} = require('electron');
 const {video} = require('./elements.js');
+const VALID_EXTENSION = ['mp4', 'mkv', 'mov'];
 
 /*
  * 设定渲染进程监听
