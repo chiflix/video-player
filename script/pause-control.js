@@ -1,18 +1,23 @@
-const {area_playstate} = require('./elements.js');
+const {area_playstate, video} = require('./elements.js');
 const {remote} = require('electron');
-const current_window = remote.getCurrentWindow();
 
 const togglePlayState = function() {
-    current_window.webContents.send('toggle');
+    if(video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
 };
+area_playstate.addEventListener('click', togglePlayState, false);
 
 const listenSpaceKeyDown = function(event) {
     if(event.keyCode === 32){
-        current_window.webContents.send('toggle');
+        if(video.paused) {
+	        video.play();
+	    } else {
+	        video.pause();
+	    }
     }
 };
-
-area_playstate.addEventListener('click', togglePlayState, false);
-
 //全局添加键盘监听
 document.addEventListener('keydown', listenSpaceKeyDown, false);
