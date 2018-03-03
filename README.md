@@ -22,8 +22,10 @@
 1. 在终端中进入项目根目录
 2. 查看app运行情况: `npm start`
 3. 安装app打包程序: `npm install electron-packager -g`
-4. 打包app: `electron-packager . temp-player --electron-version=ElectronVersion [--overwrite]`
-    * 其中打包时使用的electron版本可以指定为1.4.13
+4. 打包app: 
+    * `electron-packager . temp-player --electron-version=ElectronVersion [--overwrite]`
+        * 其中打包时使用的electron版本可以指定为1.4.13
+    * 也可以使用`npm run pack`进行打包
 
 <br></br>
 
