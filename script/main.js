@@ -1,16 +1,20 @@
 const {app, BrowserWindow, Menu, ipcMain} = require('electron');
 const {MenuTemplate, addMenuItems} = require('./menu-template.js')
 const MIN_WIDTH = 320;
-const MIN_HEIGHT = 180;
+const MIN_HEIGHT = 320;
 
 let main_window;
+
+let current_window_width = 800;
+let current_window_height = 600;
+
 const window_config = {
-    width: 800,
-    height: 600,
+    width: current_window_width,
+    height: current_window_height,
     frame: false,
     titleBarStyle: 'hiddenInset',
     transparent: true,
-    //darkTheme: true
+    // darkTheme: true
     //opacity: 0.5
 };
 const createWindow = function() {
@@ -18,13 +22,17 @@ const createWindow = function() {
     //加载主界面
     main_window.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
-    main_window.webContents.openDevTools();
+    // main_window.webContents.openDevTools();
 
     //设定窗口最小尺寸
     main_window.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
 
     main_window.on('closed', () => {
         main_window = null;
+    });
+
+    main_window.on('resize',() => {
+        main_window.setAspectRatio(current_window_width/current_window_height);
     });
 };
 
@@ -52,10 +60,12 @@ app.on('activate', () => {
 });
 
 const resizeWindow = function(event, size) {
-    //main_window.setAspectRatio(size.width / size.height);//设定窗口定宽高比
+    current_window_width = size.width;
+    current_window_height = size.height;
     main_window.setSize(size.width, size.height);
 };
-ipcMain.on('resize', resizeWindow);
+
+ipcMain.on('resetWindowSize', resizeWindow);
 
 const toggleFullScreenState = function() {
     if(main_window.isFullScreen()) {
@@ -64,4 +74,5 @@ const toggleFullScreenState = function() {
         main_window.setFullScreen(true);
     }
 };
+
 ipcMain.on('toggleFullScreenState', toggleFullScreenState);

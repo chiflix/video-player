@@ -6,6 +6,9 @@
   margin: 0;
   padding: 0;
   background: transparent; }
+  video {
+      display: block;
+  }
 
 html {
   width: 100%;
