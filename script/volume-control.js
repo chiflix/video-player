@@ -72,7 +72,7 @@ const recover = function(){
     volume_area.style.background = "";
 }
 
-volume_button.addEventListener('click', mute, false);
+volume_area.addEventListener('click', mute, false);
 volume_area.addEventListener('mouseover',highlight,false);
 volume_area.addEventListener('mouseout',recover,false);
 document.addEventListener('keydown', listenUpDownKeyDown, false);
