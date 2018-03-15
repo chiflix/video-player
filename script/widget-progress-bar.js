@@ -5,14 +5,14 @@ let progress_interval;
 const updateProgressElement = function() {
     let percentage = video.currentTime / video.duration;
     if(parseInt(percentage) === 1 && video.paused === true) {
-        window.clearInterval(progress_interval); 
-        return; 
+        window.clearInterval(progress_interval);
+        return;
     }
     progress_played.style.width = percentage * 100 + '%';
 }
 
 const updateProgress = function() {
-    progress_interval = window.setInterval(updateProgressElement, 20); 
+    progress_interval = window.setInterval(updateProgressElement, 20);
 }
 
 const enlargeProgressBar = function() {
