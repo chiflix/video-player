@@ -6,9 +6,6 @@
   margin: 0;
   padding: 0;
   background: transparent; }
-  video {
-      display: block;
-  }
 
 html {
   width: 100%;
@@ -109,7 +106,7 @@ body {
     bottom: 25px;
     right: 75px;
     width: 30px;
-    height: 120px;}
+    height: 120px; }
   .video-controller .advanced {
     position: absolute;
     bottom: 25px;

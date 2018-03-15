@@ -1,0 +1,187 @@
+$progress_active_height: 30px;
+$progress_light_height: 300px;
+
+
+@font-face {
+	font-family: 'Avenir';
+	src: url('../fontface/Avenir.ttc');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.application {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	overflow: hidden;
+	-webkit-app-region: drag;
+}
+
+.player {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+
+/*
+ * Controller
+ * 视频控制组件
+ */
+
+.video-controller {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	overflow: hidden;
+	opacity: 1;
+	transition: opacity 200ms;
+
+	.background {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.3;
+		background-image: linear-gradient(-180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.19) 62%, rgba(0,0,0,0.29) 100%);
+	}
+
+	.playstate {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.progress {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: $progress_active_height;
+	}
+
+	.progress--played {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+
+		.line {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background: #FFFFFF;
+			box-shadow: 0 0 20px 0 rgba(255,255,255,0.50);
+			transition: height 200ms;
+
+			&.line--mouseover {
+				height: 10px;
+			}
+		}
+
+		.light {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: $progress_light_height;
+			opacity: 0.1;
+			background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 76%, #FFFFFF 100%);
+		}
+	}
+
+
+	.timing {
+		position: absolute;
+		bottom: 25px;
+		left: 30px;
+		// width: 100%;
+		height: 24px;
+
+		.time {
+			display: inline-block;
+			color: #FFFFFF;
+			font: 600 18px 'Avenir';
+			line-height: 24px;
+			letter-spacing: 0.2px;
+			user-select: none;
+			opacity: .5;
+		}
+
+		.timing--current {
+			opacity: 1;
+		}		
+	}
+
+	.volume {
+		position: absolute;
+		bottom: 25px;
+		right: 75px;
+		width: 30px;
+		height: 120px;
+			
+	}
+
+	.advanced {
+		position: absolute;
+		bottom: 25px;
+		right: 30px;
+		width: 30px;
+		height: 120px;
+	}
+
+	.button {
+		position: absolute;
+		bottom: 0px;
+		width: 30px;
+		height: 24px;
+
+		embed {
+			width: 30px;
+			height: 24px;
+		}
+	}
+
+	&.video-controller--mouseout {
+		opacity: 0;
+	}
+}
+
+.video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	overflow: hidden;
+
+	video {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
