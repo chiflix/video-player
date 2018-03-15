@@ -133,7 +133,7 @@ body {
 
 		.timing--current {
 			opacity: 1;
-		}		
+		}
 	}
 
 	.volume {
@@ -141,8 +141,20 @@ body {
 		bottom: 25px;
 		right: 75px;
 		width: 30px;
-		height: 120px;
-			
+		height: 150px;
+
+		.volume--bar {
+			width:15px;
+			height:80%;
+			margin: 0 auto;
+			background-color:white;
+			opacity: 0;
+
+			&.volume--mouseover {
+				opacity: 1;
+			}
+		}
+
 	}
 
 	.advanced {
