@@ -120,7 +120,8 @@ body {
     height: 24px; }
     .video-controller .button embed {
       width: 30px;
-      height: 24px; }
+      height: 24px;
+      pointer-events: none; }
   .video-controller.video-controller--mouseout {
     opacity: 0; }
 
