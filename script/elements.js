@@ -8,9 +8,10 @@ const area_progress = document.getElementById('progress');
 const progress_played = document.getElementById('progress--played');
 const progress_line = document.getElementById('progress--line');
 
+const volume_button = document.getElementById('volume--button');
 const volume_bar = document.getElementById('volume--bar');
 const volume_current = document.getElementById('volume--current');
-const volume_button = document.getElementById('volume--button');
+const volume_icon = document.getElementById('volume--button');
 const volume_area = document.getElementById('volume');
 
 const info_timing_current = document.getElementById('timing--current');
@@ -27,8 +28,9 @@ module.exports = {
     progress_line: progress_line,
     info_timing_current: info_timing_current,
     info_timing_total: info_timing_total,
-    volume_button: volume_button,
+    volume_icon: volume_icon,
     volume_area: volume_area,
     volume_current:volume_current,
-    volume_bar:volume_bar
+    volume_bar:volume_bar,
+    volume_button:volume_button
 }
