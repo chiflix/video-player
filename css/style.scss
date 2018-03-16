@@ -144,17 +144,51 @@ body {
 		height: 150px;
 
 		.volume--bar {
-			width:15px;
-			height:80%;
-			margin: 0 auto;
-			background-color:white;
+			position:absolute;
+			top:0px;
+			left:10px;
+			border-radius: 1px;
+			width:12px;
+			height:110px;
+			margin:0 auto;
 			opacity: 0;
+			transition: opacity 200ms;
+			overflow: hidden;
 
 			&.volume--mouseover {
 				opacity: 1;
 			}
+
+			.volume--blur{
+				position:absolute;
+				left:-10px;
+				width:100px;
+				height:120px;
+				background-color:white;
+				-webkit-filter: blur(3px);
+				filter: blur(3px);
+				overflow: hidden;
+				opacity: 0.5;
+			}
 		}
 
+
+
+
+		.volume--current {
+			border-radius: 1px;
+			position:absolute;
+			bottom:40px;
+			left:10px;
+			width:12px;
+			height:50px;
+			background-color: white;
+			opacity: 0;
+			transition: opacity 200ms;
+			&.volume--mouseover {
+				opacity: 0.8;
+			}
+		}
 	}
 
 	.advanced {

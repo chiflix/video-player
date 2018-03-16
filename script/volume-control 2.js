@@ -66,15 +66,12 @@ const mute = function(){
 };
 
 const highlight = function(){
-    volume_bar.className = 'volume--bar volume--mouseover';
-    volume_current.className = 'volume--current volume--mouseover'
-};
+    volume_bar.className = "volume--bar volume--mouseover";
 const recover = function(){
-    volume_bar.className = 'volume--bar';
-    volume_current.className = 'volume--current'
-};
+    volume_bar.className = "volume--bar";
+}
 
 volume_button.addEventListener('click', mute, false);
-volume_area.addEventListener('mouseover', highlight, false);
-volume_area.addEventListener('mouseout', recover, false);
+volume_area.addEventListener('mouseover',highlight,false);
+volume_area.addEventListener('mouseout',recover,false);
 document.addEventListener('keydown', listenUpDownKeyDown, false);

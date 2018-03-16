@@ -108,13 +108,40 @@ body {
     width: 30px;
     height: 150px; }
     .video-controller .volume .volume--bar {
-      width: 15px;
-      height: 80%;
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      border-radius: 1px;
+      width: 12px;
+      height: 110px;
       margin: 0 auto;
-      background-color: white;
-      opacity: 0; }
+      opacity: 0;
+      transition: opacity 200ms;
+      overflow: hidden; }
       .video-controller .volume .volume--bar.volume--mouseover {
         opacity: 1; }
+      .video-controller .volume .volume--bar .volume--blur {
+        position: absolute;
+        left: -10px;
+        width: 100px;
+        height: 120px;
+        background-color: white;
+        -webkit-filter: blur(3px);
+        filter: blur(3px);
+        overflow: hidden;
+        opacity: 0.5; }
+    .video-controller .volume .volume--current {
+      border-radius: 1px;
+      position: absolute;
+      bottom: 40px;
+      left: 10px;
+      width: 12px;
+      height: 50px;
+      background-color: white;
+      opacity: 0;
+      transition: opacity 200ms; }
+      .video-controller .volume .volume--current.volume--mouseover {
+        opacity: 0.8; }
   .video-controller .advanced {
     position: absolute;
     bottom: 25px;
