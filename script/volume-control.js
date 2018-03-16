@@ -56,22 +56,22 @@ const mute = function(){
     if(isMute){
         video.muted = true;
         isMute = false;
-        volume_button.setAttribute('src',"image/icon-volume.svg");
+        volume_button.childNodes[0].setAttribute('src',"image/icon-volume.svg");
     }
     else{
         video.muted = false;
         isMute = true;
-        volume_button.setAttribute('src',"image/icon-volume-mute.svg");
+        volume_button.childNodes[0].setAttribute('src',"image/icon-volume-mute.svg");
     }
 };
 
 const highlight = function(){
     volume_bar.className = 'volume--bar volume--mouseover';
-    volume_current.className = 'volume--current volume--mouseover'
+    volume_current.className = 'volume--current volume--mouseover';
 };
 const recover = function(){
     volume_bar.className = 'volume--bar';
-    volume_current.className = 'volume--current'
+    volume_current.className = 'volume--current';
 };
 
 volume_button.addEventListener('click', mute, false);
