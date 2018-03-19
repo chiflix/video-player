@@ -10,7 +10,7 @@
 html {
   width: 100%;
   height: 100%;
-  font-size: 20px; }
+  font-size: 10px; }
 
 body {
   position: relative;
@@ -107,7 +107,8 @@ body {
     bottom: 2.5rem;
     right: 8.125rem;
     width: 3.4375rem;
-    height: 16.1875rem; }
+    height: 16.1875rem;
+    -webkit-app-region: no-drag; }
     .video-controller .volume .volume--bar {
       position: absolute;
       bottom: 4rem;
@@ -121,6 +122,7 @@ body {
       .video-controller .volume .volume--bar.volume--mouseover {
         opacity: 1; }
       .video-controller .volume .volume--bar .volume--blur {
+        pointer-events: none;
         position: absolute;
         left: -0.625rem;
         width: 6.25rem;
@@ -131,6 +133,7 @@ body {
         overflow: hidden;
         opacity: 0.2; }
     .video-controller .volume .volume--current {
+      pointer-events: none;
       border-radius: 0.0625rem;
       position: absolute;
       bottom: 4rem;
@@ -142,13 +145,13 @@ body {
       transition: opacity 200ms; }
       .video-controller .volume .volume--current.volume--mouseover {
         opacity: 0.7; }
-    .video-controller .volume .volume--button {
+    .video-controller .volume .volume--slider {
       position: absolute;
       bottom: 11.25rem;
       left: 1.1875rem;
       width: 0.9375rem;
       height: 0.9375rem; }
-      .video-controller .volume .volume--button.volume--mouseover {
+      .video-controller .volume .volume--slider.volume--mouseover {
         background-image: linear-gradient(-180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%); }
   .video-controller .advanced {
     position: absolute;
