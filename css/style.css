@@ -3,6 +3,7 @@
   font-family: 'Avenir';
   src: url("../fontface/Avenir.ttc"); }
 * {
+  cursor: default;
   margin: 0;
   padding: 0;
   background: transparent; }
@@ -132,6 +133,14 @@ body {
         filter: blur(3px);
         overflow: hidden;
         opacity: 0.2; }
+    .video-controller .volume .volume--slider--area {
+      position: absolute;
+      bottom: 4rem;
+      left: 1.1875rem;
+      width: 0.9375rem;
+      height: 9.75rem;
+      overflow: hidden;
+      pointer-events: none; }
     .video-controller .volume .volume--current {
       pointer-events: none;
       border-radius: 0.0625rem;
@@ -147,9 +156,8 @@ body {
         opacity: 0.7; }
     .video-controller .volume .volume--slider {
       pointer-events: none;
-      position: absolute;
-      bottom: 11.25rem;
-      left: 1.1875rem;
+      position: relative;
+      top: 0;
       width: 0.9375rem;
       height: 0.9375rem; }
       .video-controller .volume .volume--slider.volume--mouseover {
