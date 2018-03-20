@@ -1,4 +1,4 @@
-const {video,volume_area,volume_icon,volume_current,volume_bar,volume_slider,volume_slider_area} = require('./elements.js');
+const {video,volume_area,volume_icon,volume_current,volume_bar,volume_slider} = require('./elements.js');
 
 const VOLUME_VALUE = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
 
@@ -64,7 +64,6 @@ const mute = function(){
         isMute = false;
         volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">';
         volume_current.style.height = position.current_height + 'px';
-        volume_slider_area.style.height = position.current_height + 'px';
     }
     else{
         video.muted = true;
@@ -72,7 +71,6 @@ const mute = function(){
         volume_icon.innerHTML = '<embed src="image/icon-volume-mute.svg" type="image/svg+xml">'
         position.current_height = volume_current.offsetHeight;
         volume_current.style.height = 0;
-        volume_slider_area.style.height = 0;
     }
 };
 
@@ -93,14 +91,10 @@ const changeVolume = function(event) {
         isMute = false;
         volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">'
     }
-
     let percent_of_volume = 1 - event.offsetY / volume_bar.offsetHeight;
-
     volume_current.style.height =  percent_of_volume * volume_bar.offsetHeight + 'px';
-    volume_slider_area.style.height =  percent_of_volume * volume_bar.offsetHeight + 'px';
-
     video.volume = percent_of_volume;
-
+    // volume_slider.style.height = percent_of_volume * volume_bar.offsetHeight + 'px';
     position.offsetY = event.offsetY;
     position.state = 1;
     position.current_height = volume_current.offsetHeight;
@@ -109,26 +103,21 @@ const changeVolume = function(event) {
 const changeVolumeByDrag = function(event){
     if(position.state){
         let adjusted_height = position.current_height + position.offsetY - event.offsetY;
-        if(adjusted_height < volume_bar.offsetHeight && adjusted_height > 1){
+        if(adjusted_height < volume_bar.offsetHeight && adjusted_height > 2){
             if(isMute){
                 video.muted = false;
                 isMute = false;
                 volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">'
             }
-
             volume_current.style.height = adjusted_height + 'px';
-            volume_slider_area.style.height = adjusted_height + 'px';
-
             video.volume = adjusted_height / volume_bar.offsetHeight;
         }
         else if(adjusted_height >= volume_bar.offsetHeight){
             volume_current.style.height = volume_bar.offsetHeight + 'px';
-            volume_slider_area.style.height = volume_bar.offsetHeight + 'px';
             video.volume = 1;
         }
-        else if(adjusted_height <= 1){
+        else if(adjusted_height <= 2){
             volume_current.style.height = 0;
-            volume_slider_area.style.height = 0;
             video.volume = 0;
             isMute = true;
             volume_icon.innerHTML = '<embed src="image/icon-volume-mute.svg" type="image/svg+xml">'

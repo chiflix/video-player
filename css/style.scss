@@ -5,7 +5,6 @@
 }
 
 * {
-	cursor:default;
 	margin: 0;
 	padding: 0;
 	background: transparent;
@@ -171,16 +170,6 @@ body {
 			}
 		}
 
-		.volume--slider--area{
-			position:absolute;
-			bottom: (64rem/16);
-			left:(19rem/16);
-			width:(15rem/16);
-			height:(156rem/16);
-			overflow: hidden;
-			pointer-events: none;
-		}
-
 		.volume--current {
 			pointer-events: none;
 			border-radius: (1rem/16);
@@ -199,8 +188,9 @@ body {
 
 		.volume--slider {
 			pointer-events: none;
-			position:relative;
-			top:0;
+			position:absolute;
+			bottom: (180rem/16);
+			left:(19rem/16);
 			width:(15rem/16);
 			height:(15rem/16);
 
