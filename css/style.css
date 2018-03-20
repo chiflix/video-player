@@ -10,7 +10,7 @@
 html {
   width: 100%;
   height: 100%;
-  font-size: 10px; }
+  font-size: 16px; }
 
 body {
   position: relative;
@@ -139,13 +139,14 @@ body {
       bottom: 4rem;
       left: 1.1875rem;
       width: 0.9375rem;
-      height: 8.1875rem;
+      height: 9.75rem;
       background-color: white;
       opacity: 0;
       transition: opacity 200ms; }
       .video-controller .volume .volume--current.volume--mouseover {
         opacity: 0.7; }
     .video-controller .volume .volume--slider {
+      pointer-events: none;
       position: absolute;
       bottom: 11.25rem;
       left: 1.1875rem;

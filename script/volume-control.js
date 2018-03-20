@@ -4,8 +4,9 @@ const VOLUME_VALUE = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
 
 let isMute = false;
 let position = {
-        offsetY: 0, //偏移Y值
-        state: 0 //是否正处于拖拽状态，1表示正在拖拽，0表示释放
+        offsetY: 0, //鼠标相对于音量条的偏移Y值
+        state: 0, //是否正处于拖拽状态，1表示正在拖拽，0表示释放
+        current_height:0 //当前音量高度
     };
 const getVolumeIndex = function() {
     const current_volume = video.volume;
@@ -61,12 +62,14 @@ const mute = function(){
     if(isMute){
         video.muted = false;
         isMute = false;
-        volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">'
+        volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">';
+        volume_current.style.height = position.current_height + 'px';
     }
     else{
         video.muted = true;
         isMute = true;
         volume_icon.innerHTML = '<embed src="image/icon-volume-mute.svg" type="image/svg+xml">'
+        position.current_height = volume_current.offsetHeight;
         volume_current.style.height = 0;
     }
 };
@@ -83,36 +86,47 @@ const recover = function(){
 };
 
 const changeVolume = function(event) {
-    let percentOfVolume = 1 - event.offsetY / volume_bar.offsetHeight;
-    volume_current.style.height =  percentOfVolume * volume_bar.offsetHeight + 'px';
-    video.volume = percentOfVolume;
-    // volume_slider.style.height = percentOfVolume * volume_bar.offsetHeight + 'px';
+    if(isMute){
+        video.muted = false;
+        isMute = false;
+        volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">'
+    }
+    let percent_of_volume = 1 - event.offsetY / volume_bar.offsetHeight;
+    volume_current.style.height =  percent_of_volume * volume_bar.offsetHeight + 'px';
+    video.volume = percent_of_volume;
+    // volume_slider.style.height = percent_of_volume * volume_bar.offsetHeight + 'px';
     position.offsetY = event.offsetY;
     position.state = 1;
-    volume_bar.addEventListener('mousemove',changeVolumeByDrag,false);
+    position.current_height = volume_current.offsetHeight;
 };
 
 const changeVolumeByDrag = function(event){
     if(position.state){
-        console.log(event.offsetY);
-        let adjusted_height =  volume_current.offsetHeight + (position.offsetY - event.offsetY);
-        if(adjusted_height < volume_bar.offsetHeight && adjusted_height > 0){
+        let adjusted_height = position.current_height + position.offsetY - event.offsetY;
+        if(adjusted_height < volume_bar.offsetHeight && adjusted_height > 2){
+            if(isMute){
+                video.muted = false;
+                isMute = false;
+                volume_icon.innerHTML = '<embed src="image/icon-volume.svg" type="image/svg+xml">'
+            }
             volume_current.style.height = adjusted_height + 'px';
+            video.volume = adjusted_height / volume_bar.offsetHeight;
         }
         else if(adjusted_height >= volume_bar.offsetHeight){
             volume_current.style.height = volume_bar.offsetHeight + 'px';
+            video.volume = 1;
         }
-        else if(adjusted_height <= 0){
+        else if(adjusted_height <= 2){
             volume_current.style.height = 0;
+            video.volume = 0;
+            isMute = true;
+            volume_icon.innerHTML = '<embed src="image/icon-volume-mute.svg" type="image/svg+xml">'
         }
-        // volume_current.style.height = volume_current.offsetHeight - (event.offsetY - position.offsetY) + 'px';
     }
+};
 
-}
-volume_area.addEventListener('mouseup',()=>{
-    position.state = 0;
-    volume_bar.removeEventListener('mousemove',changeVolumeByDrag,false);
-},false);
+volume_area.addEventListener('mouseup',()=>{position.state = 0;},false);
+volume_bar.addEventListener('mousemove',changeVolumeByDrag,false);
 volume_bar.addEventListener('mousedown',changeVolume,false);
 volume_icon.addEventListener('click', mute, false);
 volume_area.addEventListener('mouseover', highlight, false);
