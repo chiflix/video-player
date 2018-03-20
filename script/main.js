@@ -22,7 +22,7 @@ const createWindow = function() {
     //加载主界面
     main_window.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
-    main_window.webContents.openDevTools();
+    // main_window.webContents.openDevTools();
 
     //设定窗口最小尺寸
     main_window.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);

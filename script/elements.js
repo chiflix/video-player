@@ -9,6 +9,7 @@ const progress_played = document.getElementById('progress--played');
 const progress_line = document.getElementById('progress--line');
 
 const volume_slider = document.getElementById('volume--slider');
+const volume_slider_area = document.getElementById('volume--slider--area');
 const volume_bar = document.getElementById('volume--bar');
 const volume_current = document.getElementById('volume--current');
 const volume_icon = document.getElementById('volume--button');
@@ -32,5 +33,6 @@ module.exports = {
     volume_area: volume_area, //音量的可识别区域
     volume_current:volume_current, //当前音量的条条
     volume_bar:volume_bar, //音量条
-    volume_slider:volume_slider //拖动音量的滑块
+    volume_slider: volume_slider,
+    volume_slider_area:volume_slider_area //拖动音量的滑块
 }
