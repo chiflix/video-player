@@ -40,11 +40,15 @@ const adjustVolume = function(direction) {
         if(volume_index + 1 < VOLUME_VALUE.length) {
             video.volume = VOLUME_VALUE[volume_index + 1];
             volume_current.style.height =  video.volume * volume_bar.offsetHeight + 'px';
+            volume_slider_area.style.height =  video.volume * volume_bar.offsetHeight + 'px';
+
         }
     } else if (direction === 'down') {
         if(volume_index > 0) {
             video.volume = VOLUME_VALUE[volume_index - 1];
             volume_current.style.height =  video.volume * volume_bar.offsetHeight + 'px';
+            volume_slider_area.style.height =  video.volume * volume_bar.offsetHeight + 'px';
+
         }
     }
     //console.log(video.volume);

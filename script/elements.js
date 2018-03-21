@@ -27,8 +27,10 @@ module.exports = {
     area_progress: area_progress,
     progress_played: progress_played,
     progress_line: progress_line,
+
     info_timing_current: info_timing_current,
     info_timing_total: info_timing_total,
+
     volume_icon: volume_icon, //音量图标
     volume_area: volume_area, //音量的可识别区域
     volume_current:volume_current, //当前音量的条条

@@ -2,6 +2,7 @@ const {video} = require('./elements.js');
 
 let current_play_speed = 1;
 const SPEED_LIST = [1, 1.5, 2.5, 5];
+const STEP = 5
 
 const adjustPlaySpeed = function(direction) {
     if(direction === 'forward') {
@@ -16,14 +17,16 @@ const adjustPlaySpeed = function(direction) {
 };
 
 const listenLeftRightKeyDown = function(event) {
-    if(video.paused) {
-        return;
-    }
+    // if(video.paused) {
+    //     return;
+    // }
 
     if(event.keyCode === 37) {
-        adjustPlaySpeed('backward');
+        video.currentTime -= STEP;
+        // adjustPlaySpeed('backward');
     } else if(event.keyCode === 39) {
-        adjustPlaySpeed('forward');
+        video.currentTime += STEP;
+        // adjustPlaySpeed('forward');
     }
 };
 

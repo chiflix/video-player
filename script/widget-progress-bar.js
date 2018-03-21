@@ -23,7 +23,13 @@ const recoverProgressBar = function() {
     progress_line.className = 'line';
 }
 
+const changeProgress = function(event){
+    console.log(event.offsetX);
+    progress_played.style.width = event.offsetX + 'px';
+}
+
 video.addEventListener('loadedmetadata', updateProgress, false);
 player.addEventListener('click', updateProgress, false);
+area_progress.addEventListener('click',changeProgress,false);
 area_progress.addEventListener('mouseover', enlargeProgressBar, false);
 area_progress.addEventListener('mouseout', recoverProgressBar, false);
