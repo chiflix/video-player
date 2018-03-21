@@ -23,6 +23,14 @@ body {
 	height: 100%;
 }
 
+button {
+	position: absolute;
+	left:20px;
+	width: (22rem/16);
+	height: (22rem/16);
+
+}
+
 .application {
 	position: relative;
 	width: 100%;
@@ -74,11 +82,32 @@ body {
 	}
 
 	.progress {
+		-webkit-app-region: no-drag;
 		position: absolute;
 		bottom: 0;
 		left: 0;
 		width: 100%;
 		height: (80rem/16);
+	}
+
+	.progress--thumbnail{
+		pointer-events: none;
+		position: absolute;
+		bottom: (49rem/16);
+		left: 0;
+		width: (260rem/16);
+		height: (155rem/16);
+		background-color: black;
+		opacity: 0;
+		transition: opacity 400ms;
+	}
+
+	.progress--bar{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: (15rem/16);
 	}
 
 	.progress--played {
@@ -103,12 +132,26 @@ body {
 		}
 
 		.light {
+			pointer-events: none;
 			position: absolute;
 			bottom: 0;
 			width: 100%;
 			height: (450rem/16);
 			opacity: 0.1;
 			background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 76%, #FFFFFF 100%);
+		}
+	}
+
+	.progress--ready{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: (4rem/16);
+		background-color: rgba(255,255,255,0.4);
+		transition: height 200ms, width 100ms ease-out;
+		&.mouseover {
+			height: (15rem/16);
 		}
 	}
 
@@ -225,6 +268,7 @@ body {
 			height: (44rem/16);
 
 		embed {
+			-webkit-user-select: none;
 			width: (55rem/16);
 			height: (44rem/16);
 			pointer-events: none;

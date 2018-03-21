@@ -18,6 +18,12 @@ body {
   width: 100%;
   height: 100%; }
 
+button {
+  position: absolute;
+  left: 20px;
+  width: 1.375rem;
+  height: 1.375rem; }
+
 .application {
   position: relative;
   width: 100%;
@@ -60,11 +66,28 @@ body {
     width: 100%;
     height: 100%; }
   .video-controller .progress {
+    -webkit-app-region: no-drag;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 5rem; }
+  .video-controller .progress--thumbnail {
+    pointer-events: none;
+    position: absolute;
+    bottom: 3.0625rem;
+    left: 0;
+    width: 16.25rem;
+    height: 9.6875rem;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 400ms; }
+  .video-controller .progress--bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.9375rem; }
   .video-controller .progress--played {
     position: absolute;
     bottom: 0;
@@ -82,12 +105,23 @@ body {
       .video-controller .progress--played .line.line--mouseover {
         height: 0.9375rem; }
     .video-controller .progress--played .light {
+      pointer-events: none;
       position: absolute;
       bottom: 0;
       width: 100%;
       height: 28.125rem;
       opacity: 0.1;
       background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 76%, #FFFFFF 100%); }
+  .video-controller .progress--ready {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: height 200ms, width 100ms ease-out; }
+    .video-controller .progress--ready.mouseover {
+      height: 0.9375rem; }
   .video-controller .timing {
     position: absolute;
     bottom: 2.625rem;
@@ -174,6 +208,7 @@ body {
     width: 3.4375rem;
     height: 2.75rem; }
     .video-controller .button embed {
+      -webkit-user-select: none;
       width: 3.4375rem;
       height: 2.75rem;
       pointer-events: none; }

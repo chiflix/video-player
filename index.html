@@ -15,17 +15,14 @@
 		<div  class="video-controller" id="video-controller">
 			<div class="background"></div>
 			<div class="playstate" id="playstate"></div>
-			<div class="progress" id="progress">
-				<div class="progress--played" id="progress--played">
-					<div class="line" id="progress--line"></div>
-					<!-- <div class="light"></div> -->
-				</div>
-			</div>
+
 			<div class="timing" id="timing">
 					<span class="time timing--current" id="timing--current"></span>
 					<span class="time">/</span>
 					<span class="time timing--total" id="timing--total"></span>
 			</div>
+
+
 			<div class="volume" id="volume">
 				<div class="volume--bar" id="volume--bar">
 					<div class="volume--blur">
@@ -44,6 +41,19 @@
 			<div class="advanced" id="advanced">
 				<div class="button" id="advance--button">
 					<embed src="image/icon-advanced.svg" type="image/svg+xml">
+				</div>
+			</div>
+			<div class="progress" id="progress">
+				<canvas class="progress--thumbnail" id="progress--thumbnail">
+
+				</canvas>
+				<div class="progress--bar" id="progress--bar">
+					<div class="progress--ready" id="progress--ready">
+					</div>
+					<div class="progress--played" id="progress--played">
+						<div class="line" id="progress--line"></div>
+						<div class="light"></div>
+					</div>
 				</div>
 			</div>
 		</div>

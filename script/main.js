@@ -1,4 +1,10 @@
-const {app, BrowserWindow, Menu, ipcMain} = require('electron');
+const {
+    app,
+    globalShortcut,
+    BrowserWindow,
+    Menu,
+    ipcMain
+} = require('electron');
 const {MenuTemplate, addMenuItems} = require('./menu-template.js')
 const MIN_WIDTH = 320;
 const MIN_HEIGHT = 320;
@@ -12,8 +18,8 @@ const window_config = {
     width: current_window_width,
     height: current_window_height,
     frame: false,
-    titleBarStyle: 'hiddenInset',
-    transparent: true,
+    titleBarStyle: 'customButtonsOnHover',
+    transparent: true
     // darkTheme: true
     //opacity: 0.5
 };
@@ -22,7 +28,7 @@ const createWindow = function() {
     //加载主界面
     main_window.loadURL(`file://${__dirname}/../index.html`);
     //开启调试工具
-    main_window.webContents.openDevTools();
+    // main_window.webContents.openDevTools();
 
     //设定窗口最小尺寸
     main_window.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
@@ -42,9 +48,17 @@ const createMenu = function() {
     Menu.setApplicationMenu(menu);
 };
 
+const registerShortcut = function(){
+    globalShortcut.register('CommandOrControl+W', () => {
+        if(main_window)
+            main_window.close();
+    })
+}
+
 const initializeApp = function() {
     createWindow();
     createMenu();
+    registerShortcut();
 };
 
 app.on('ready', initializeApp);//electron完成初始化后触发

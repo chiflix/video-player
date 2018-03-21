@@ -17,10 +17,6 @@ const adjustPlaySpeed = function(direction) {
 };
 
 const listenLeftRightKeyDown = function(event) {
-    // if(video.paused) {
-    //     return;
-    // }
-
     if(event.keyCode === 37) {
         video.currentTime -= STEP;
         // adjustPlaySpeed('backward');
