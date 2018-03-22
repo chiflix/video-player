@@ -74,7 +74,7 @@ const changeProgressByDrag = function(event){
 
 video.addEventListener('loadedmetadata', updateProgress, false);
 player.addEventListener('click', updateProgress, false);
-progress_bar.addEventListener('mouseup',()=>{position.state = 0;},false);
+document.addEventListener('mouseup',()=>{position.state = 0;},false);
 progress_bar.addEventListener('mousedown',changeProgress,false);
 progress_bar.addEventListener('mouseout',()=>{
     progress_thumbnail.style.opacity = 0;
