@@ -119,7 +119,7 @@ button {
     width: 0;
     height: 0.25rem;
     background-color: rgba(255, 255, 255, 0.4);
-    transition: height 200ms, width 100ms ease-out; }
+    transition: height 200ms; }
     .video-controller .progress--ready.mouseover {
       height: 0.9375rem; }
   .video-controller .timing {

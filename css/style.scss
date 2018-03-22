@@ -149,7 +149,7 @@ button {
 		width: 0;
 		height: (4rem/16);
 		background-color: rgba(255,255,255,0.4);
-		transition: height 200ms, width 100ms ease-out;
+		transition: height 200ms;
 		&.mouseover {
 			height: (15rem/16);
 		}
